@@ -101,7 +101,7 @@
     .menu-toggle{
       display:none;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 991px) {
       .infoBar {
         display: none;
       }
@@ -110,11 +110,11 @@
         justify-content:space-between;
       }
       .Header{
-        position:absolute;
-        top:0;
-        right:0;
+        position:relative;
         border:none;
         height:auto;
+        width:auto;
+        flex-direction:column;
       }
       .navBar {
         display: none;
@@ -128,6 +128,7 @@
       }
       .navBar li{
         border-bottom:1px solid rgba(0, 0, 0, 0.2);
+        color:white;
       }
 
       .navBar.show {
@@ -157,8 +158,8 @@
       <li class="signIn"><i class="fa fa-sign-in"></i>CTV đăng nhập</li>
     </ul>
   </div>
+  <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
   <div class="Header">
-    <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
     <ul class="navBar" id="navBar">
       <li><a href="#">TRANG CHỦ</a></li>
       <li><a href="#">ÁO TRƠN</a></li>
