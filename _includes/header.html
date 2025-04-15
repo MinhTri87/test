@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,19 +119,31 @@
       }
       .navBar {
         display: none;
+align-items:left;
+justify-content:left;
         flex-direction: column;
         width: 100%;
-        background: black;
+        background: #212529;
         position: absolute;
         top: 100%;
         left: 0;
-        z-index: 10;        
+        z-index: 10;    
+padding:0;    
       }
-      .navBar li{
-        border-bottom:1px solid rgba(0, 0, 0, 0.2);
+      .navBar li a{
+        border-bottom:1px solid #1b1f23;
         color:white;
+text-align:left;
       }
-
+.navBar li:first-child a {
+      color:white;
+    }
+	.navBar li a:hover {
+      color:white;
+    }
+	.navBar li a:visited{
+color:orange;
+}
       .navBar.show {
         display: flex;
       }
