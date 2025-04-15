@@ -97,6 +97,46 @@
       color:#3b5998;
       border:1px solid #3b5998;
     }
+    @media (max-width: 768px) {
+      .infoBar {
+        display: none;
+      }
+
+      .navBar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: black;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 10;        
+      }
+      .navBar li{
+        border-bottom:1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .navBar.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 12px;
+      }
+
+      .Facebook {
+        position: absolute;
+        right: 20px;
+        top: 12px;
+      }
+
+      .upperHeader {
+        justify-content: space-between;
+      }
+    }
   </style>
 </head>
 <body>
@@ -109,6 +149,7 @@
     </ul>
   </div>
   <div class="Header">
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
     <ul class="navBar">
       <li><a href="#">TRANG CHỦ</a></li>
       <li><a href="#">ÁO TRƠN</a></li>
@@ -120,4 +161,10 @@
     </ul>
     <span class="Facebook"><i class="fa fa-facebook"></i></span>
   </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementByClassName('navBar');
+      nav.classList.toggle('show');
+    }
+  </script>
 </body>
