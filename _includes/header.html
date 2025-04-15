@@ -106,7 +106,7 @@
         display: none;
       }
       .topBar{
-        align-items:left;
+        padding:0;
       }
       .Header{
         position:absolute;
@@ -173,8 +173,8 @@
     <span class="Facebook"><i class="fa fa-facebook"></i></span>
   </div>
   <script>
-    const nav = document.getElementById('navBar');
     function toggleMenu() {
+      const nav = document.getElementById('navBar');
       nav.classList.toggle('show');
     }
   </script>
