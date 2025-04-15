@@ -2,6 +2,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
+    .topBar {
+      position:relative;
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .topBar img {
+      padding-left: 100px;
+    }
+
+    .infoBar {
+      list-style-type: none;
+      display: flex;
+      padding: 0 100px 0 30px;
+      gap: 30px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .mail {
+      text-decoration: none;
+      color: black;
+    }
+
+    .mail:hover {
+      color: orange;
+    }
+    .signIn:before{
+      content:'e740';
+    }
+    .mail:before{
+    content:'\f0e0';
+    }
+  
     .Header {
       position:sticky;
       top:0;
