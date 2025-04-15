@@ -105,6 +105,10 @@
       .infoBar {
         display: none;
       }
+      .Header{
+        position:relative;
+        border:none;
+      }
       .navBar {
         display: none;
         flex-direction: column;
@@ -166,7 +170,7 @@
   <script>
     const nav = document.getElementByClassName('navBar');
     function toggleMenu() {
-      nav[0].classList.toggle('show');
+      nav[1].classList.toggle('show');
     }
   </script>
 </body>
