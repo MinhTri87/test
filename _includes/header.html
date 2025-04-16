@@ -120,7 +120,7 @@
       .navBar {
 	max-height:0px;
 	overflow:hidden;
-	transition:max-height 0.2s ease;
+	transition:max-height 0.3s ease-in;
 	align-items:left;
 	justify-content:left;
         flex-direction: column;
@@ -133,10 +133,13 @@
         border-bottom:1px solid #1b1f23;
         color:white;
 	text-align:left;
+	border-right:none;
       }
 .navBar li:first-child a {
       	color:white;
 	text-align:left;
+	border-left:none;
+	border-right:none;
     }
 	.navBar li a:hover {
       color:white;
