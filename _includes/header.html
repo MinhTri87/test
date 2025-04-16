@@ -102,6 +102,42 @@
     .menu-toggle{
       display:none;
     }
+		li{
+			position:relative;
+		}
+	  .dropDown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #212529;
+  min-width: 200px;
+  z-index: 99;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style:none;
+  overflow:hidden;
+}
+
+.dropDown li {
+  text-transform:uppercase;
+  font-size:14px;
+  font-weight:normal;
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+  width: 100%;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.dropDown li:hover {
+  background-color: #333;
+}
+    li:hover > .dropDown {
+  display: flex;
+}
+		}
     @media (max-width: 991px) {
       .infoBar {
         display: none;
@@ -163,6 +199,11 @@ color:orange;
       .Facebook {
         display:none
       }
+			.dropDown{
+				display:flex;
+				padding:0 0 0 10px;
+				
+			}
     }
   </style>
 </head>
@@ -180,10 +221,45 @@ color:orange;
     <ul class="navBar" id="navBar">
       <li><a href="#">TRANG CHỦ</a></li>
       <li><a href="#">ÁO TRƠN</a></li>
-      <li><a href="#">HÌNH MẪU IN ÁO</a></li>
-      <li><a href="#">DỊCH VỤ KHÁC</a></li>
-      <li><a href="#">VẬT TƯ NGÀNH IN</a></li>
-      <li><a href="#">BLOG</a></li>
+      <li><a href="#">HÌNH MẪU IN ÁO</a>
+      <ul class="dropDown">
+	      <li><a href="#"></a>mẫu in áo lớp</li>
+	      <li><a href="#"></a>mẫu in áo nhóm</li>
+	      <li><a href="#"></a>mẫu in áo cặp</li>
+	      <li><a href="#"></a>mẫu in áo gia đình</li>
+		  <li><a href="#"></a>mẫu thiết kế hoàn thiện</li>
+		  <li><a href="#"></a>file vector 50k</li>
+      </ul>
+      </li>
+      <li><a href="#">DỊCH VỤ KHÁC</a>
+	  <ul class="dropDown">
+	      <li><a href="#"></a>in name card</li>
+	      <li><a href="#"></a>may in tạp dề</li>
+	      <li><a href="#"></a>in thêu nón</li>
+	      <li><a href="#"></a>in quảng cáo</li>
+		  <li><a href="#"></a>in tranh ghép</li>
+		  <li><a href="#"></a>in ly</li>
+		  <li><a href="#"></a>in lót chuột</li>
+      </ul>
+	  </li>
+      <li><a href="#">VẬT TƯ NGÀNH IN</a>
+	  <ul class="dropDown">
+	      <li><a href="#"></a>vật tư in lụa</li>
+	      <li><a href="#"></a>vật tư in nhựa</li>
+	      <li><a href="#"></a>vật tư in kỹ thuật số</li>
+	      <li><a href="#"></a>sản phẩm cũ giá tốt</li>
+      </ul>
+	  </li>
+      <li><a href="#">BLOG</a>
+	  <ul class="dropDown">
+	      <li><a href="#"></a>kỹ thuật in lụa</li>
+	      <li><a href="#"></a>kỹ thuật in nhiệt</li>
+	      <li><a href="#"></a>decal ép nhiệt</li>
+	      <li><a href="#"></a>font chữ đẹp in áo</li>
+		  <li><a href="#"></a>font tiếng việt in áo</li>
+		  <li><a href="#"></a>cuộc đời ngoại hạng</li>
+      </ul>
+	  </li>
       <li><a href="#">LIÊN HỆ</a></li>
     </ul>
     <span class="Facebook"><i class="fa fa-facebook"></i></span>
