@@ -118,6 +118,9 @@
         flex-direction:column;
       }
       .navBar {
+	max-height:0px;
+	overflow:hidden;
+	transition:max-height 0.2s ease;
         display: none;
 	align-items:left;
 	justify-content:left;
@@ -144,6 +147,7 @@ color:orange;
 }
       .navBar.show {
         display: flex;
+	max-height:100%;
       }
 
       .menu-toggle {
