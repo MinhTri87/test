@@ -106,38 +106,38 @@
 			position:relative;
 		}
 	  .dropDown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #212529;
-  min-width: 200px;
-  z-index: 99;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  list-style:none;
-  overflow:hidden;
-}
+  		display: none;
+  		position: absolute;
+  		top: 100%;
+  		left: 0;
+  		background-color: #212529;
+  		min-width: 200px;
+  		z-index: 99;
+  		flex-direction: column;
+  		padding: 0;
+  		margin: 0;
+  		list-style:none;
+  		overflow:hidden;
+		}
 
-.dropDown li {
-  text-transform:uppercase;
-  font-size:14px;
-  font-weight:normal;
-  font-family: 'Roboto Condensed', sans-serif;
-  color:white;
-  width: 100%;
-	height:25px;
-  white-space: nowrap;
-}
+		.dropDown li {
+  		text-transform:uppercase;
+  		font-size:14px;
+  		font-weight:normal;
+  		font-family: 'Roboto Condensed', sans-serif;
+  		color:white;
+  		width: 100%;
+			height:25px;
+  		white-space: nowrap;
+		}
 	
 
-.dropDown li:hover {
-  background-color: #333;
-}
+		.dropDown li:hover {
+ 		 background-color: #333;
+		}
     li:hover > .dropDown {
-  display: flex;
-}
+  		display: flex;
+		}
 		}
     @media (max-width: 991px) {
       .infoBar {
@@ -155,38 +155,38 @@
         flex-direction:column;
       }
       .navBar {
-	max-height:0px;
-	overflow:hidden;
-	transition:max-height 0.3s ease-in;
-	align-items:left;
-	justify-content:left;
+				max-height:0px;
+				overflow:hidden;
+				transition:max-height 0.3s ease-in;
+				align-items:left;
+				justify-content:left;
         flex-direction: column;
         width: 100%;
         background: #212529;
         z-index: 10;    
-	padding:0;    
+				padding:0;    
       }
       .navBar li a{
         border-bottom:1px solid #1b1f23;
         color:white;
-	text-align:left;
-	border-right:none;
+				text-align:left;
+				border-right:none;
       }
-.navBar li:first-child a {
+			.navBar li:first-child a {
       	color:white;
-	text-align:left;
-	border-left:none;
-	border-right:none;
-    }
-	.navBar li a:hover {
-      color:white;
-    }
-	.navBar li a:visited{
-color:orange;
-}
+				text-align:left;
+				border-left:none;
+				border-right:none;
+    	}
+			.navBar li a:hover {
+      	color:white;
+    	}
+			.navBar li a:visited{
+				color:orange;
+			}
       .navBar.show {
         display: flex;
-	max-height:1000px;
+				max-height:1000px;
       }
 
       .menu-toggle {
