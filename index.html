@@ -11,17 +11,30 @@ layout: default
   <style>
     .slider {
       width: 100%;
-      height: 500px;
+      height: 100%;
     }
+    .sliderBg{
+      width:100%;
+      height:100%;
+      z-index:10;
+    }
+    .sliderImg{
+      z-index:11;
+      width:auto;
+      height:auto;
+    }
+    
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
 <body>
-
-  <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" id="sliderImage">
+<div class="slider">
+  <img src="/assets/images/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
+  <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" class="sliderImg" id="sliderImage">
   <button onclick="slider()">Next Slide</button>
-
+</div>
   <pre> 
+    test 22
  test 21
  test 20
  test 19
@@ -47,12 +60,14 @@ layout: default
       "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
       "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
       "https://aothunxuxu.com/style/images/art/xuxu-gift.png"
-    ];
+    ],["/assets/images/slider-bg1.jpg","/assets/images/slider-bg2.jpg","/assets/images/slider-bg3.jpg"];
 
     function slider() {
       imgIndex = (imgIndex + 1) % src.length;
       const sliderImg = document.getElementById("sliderImage");
       sliderImg.src = src[imgIndex];
+      const sliderBg=document.getElementById("sliderBackground");
+      sliderBg.src=src[][imgIndex];
     }
   </script>
 
