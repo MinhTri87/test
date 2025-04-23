@@ -3,27 +3,25 @@ layout: default
 ---
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang chủ</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-   .slider{
-    width:100%;
-    height:auto;
-    
-   }
+    .slider {
+      width: 100%;
+      height: 500px;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
 <body>
- <div class="slider">
-  <img class="sliderImage"></img>
-  <button onclic=slider()></button>
-  <ul class="bannerInfo"></ul>
- </div>
-<pre> 
+
+  <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" id="sliderImage">
+  <button onclick="slider()">Next Slide</button>
+
+  <pre> 
  test 21
  test 20
  test 19
@@ -32,25 +30,6 @@ layout: default
  test7
  test 8
  test 9
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  test 10
  test 11
  test 12
@@ -60,13 +39,22 @@ layout: default
  test 16
  test 17
  test 18
-</pre>
- <script>
-  let src=["https://aothunxuxu.com/style/images/art/xuxu-bg1a.png"]["https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png"]["https://aothunxuxu.com/style/images/art/xuxu-gift.png"]
-  function slider(){
-  sliderImg=document.getElementByID("sliderImage");
-  sliderImg.src=src;
-  }
- </script>
+  </pre>
+
+  <script>
+    let imgIndex = 0;
+    const src = [
+      "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
+      "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
+      "https://aothunxuxu.com/style/images/art/xuxu-gift.png"
+    ];
+
+    function slider() {
+      imgIndex = (imgIndex + 1) % src.length;
+      const sliderImg = document.getElementById("sliderImage");
+      sliderImg.src = src[imgIndex];
+    }
+  </script>
+
 </body>
 </html>
