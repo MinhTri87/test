@@ -22,6 +22,7 @@ layout: default
       z-index:11;
       width:auto;
       height:auto;
+      position:absolute;
     }
     
   </style>
@@ -60,14 +61,16 @@ layout: default
       "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
       "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
       "https://aothunxuxu.com/style/images/art/xuxu-gift.png"
-    ],["assets/images/slider-bg1.jpg","assets/images/slider-bg2.jpg","assets/images/slider-bg3.jpg"];
+    ],["assets/images/slider-bg1.jpg","assets/images/slider-bg2.jpg","assets/images/slider-bg3.jpg"],["18px","18px","45px"],["132px","132px","405px"];
 
     function slider() {
       imgIndex = (imgIndex + 1) % src.length;
       const sliderImg = document.getElementById("sliderImage");
       sliderImg.src = src[imgIndex];
+      sliderImg.top=src[2][imgIndex];
+      sliderImg.left=src[3][imgIndex];
       const sliderBg=document.getElementById("sliderBackground");
-      sliderBg.src=src[][imgIndex];
+      sliderBg.src=src[1][imgIndex];
     }
   </script>
 
