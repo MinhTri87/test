@@ -33,7 +33,7 @@ layout: default
       width:15vw;
       height:auto;
       position:absolute;
-      bottom:5px;
+      bottom:2px;
       left:23vw;
     }
     .sliderBullets{
@@ -147,9 +147,10 @@ layout: default
     "https://aothunxuxu.com/style/images/art/slider-bg2.jpg",
     "https://aothunxuxu.com/style/images/art/slider-bg3.jpg"
   ];
-  const imgy = ["4px", "4px", "45vh"];
+  const imgy = ["2px", "2px", "45vh"];
   const imgx = ["23vw", "23vw", "40vw"];
-  const imgWidth = ["15vw", "15vw", "27vw"];
+  const imgWidth = ["20vw", "20vw", "27vw"];
+    const translate=["0%","0%","-50"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
 
@@ -175,6 +176,7 @@ const sliderBg = document.getElementById("sliderBackground");
     sliderImg.style.bottom = imgy[imgIndex];
     sliderImg.style.left = imgx[imgIndex];
     sliderImg.style.width = imgWidth[imgIndex];
+    sliderImg.style.transform=translateY([translate]);
     indexText.textContent = imgIndex;
 
     // Update bullets
