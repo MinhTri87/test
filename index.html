@@ -150,7 +150,7 @@ layout: default
   const imgy = ["2px", "2px", "20vh"];
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
-    const translate=["0%","0%","-50"];
+    const translate=["0","0","-50"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
 
@@ -176,7 +176,7 @@ const sliderBg = document.getElementById("sliderBackground");
     sliderImg.style.bottom = imgy[imgIndex];
     sliderImg.style.left = imgx[imgIndex];
     sliderImg.style.width = imgWidth[imgIndex];
-    sliderImg.style.transform=translateY(translate[imgIndex]);
+    sliderImg.style.transform="translateY(${translate[imgIndex]}%)";
     indexText.textContent = imgIndex;
 
     // Update bullets
