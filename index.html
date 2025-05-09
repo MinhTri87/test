@@ -9,6 +9,103 @@ layout: default
   <title>Trang chủ</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    *{
+      padding:0px;
+      margin:0px;
+      box-sizing:border-box;
+    }
+    .slider {
+      position:relative;
+      width: 100%;
+      height: auto;
+      max-height:600px;
+      overflow:hidden;
+    }
+    .sliderBg{
+      width:120%;
+      height:auto;
+      z-index:10;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+    .sliderImg{
+      z-index:11;
+      width:15vw;
+      height:auto;
+      position:absolute;
+      bottom:5px;
+      left:23vw;
+      max-height:600px;
+    }
+    .sliderBullets{
+      width:auto;
+      position:absolute;
+      bottom:15px;
+      left:45%;
+      align-items:center;
+      gap:10px;
+      display:flex;
+    }
+    .sliderBullet{
+      width:12px;
+      height:12px;
+      border-radius:3px;
+      background:#bbb;
+    }
+    .sliderBullet.active{
+      background:#333;
+    }
+    .timerBar{
+      position:absolute;
+      bottom:4px;
+      width: 0%;
+      height: 5px;
+      background: white;
+      opacity:0.5;
+      z-index:20;
+      animation-play-state:running;
+    }
+    .timerBar.animate{
+      animation:grow 9s linear forwards;
+    }
+    @keyframes grow{
+      from{width:0%;}
+      to{width:100%;}
+    }
+    .slider:hover .timerBar{
+      animation-play-state:paused;
+    }
+    .leftArrow{
+      position:absolute;
+      left:10px;
+      top:50%;
+      z-index:25;      
+   transform:translatey(-50%);
+      width:45px;
+      height:44px;
+      border-radius:2px;
+      background:black;
+      opacity:0;
+    }
+    .rightArrow{
+      position:absolute;
+      right:10px;
+      top:50%;
+      z-index:25;
+      transform:translatey(-50%);
+      width:45px;
+      height:44px;
+      border-radius:2px;
+      background:black;
+      opacity:0;
+            
+    }
+    .slider:hover .leftArrow{
+      opacity:0.5;
+    }
+    .slider:hover .rightArrow{
+      opacity:0.5;
+    }
     .slider {
       width: 100%;
       height: 100%;
@@ -35,10 +132,19 @@ layout: default
 </head>
 <body>
 <div class="slider">
-  <img src="assets/images/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
+  <img src="https://aothunxuxu.com/style/images/art/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
   <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" class="sliderImg" id="sliderImage">
-  <button onclick="slider()">Next Slide</button>
+  <button class="leftArrow" onclick="leftSliding()">s</button>
+  <button class="rightArrow" onclick="rightSliding()">s</button>
+  <div class="sliderBullets">
+    <div class="sliderBullet"></div>
+    <div class="sliderBullet"></div>
+    <div class="sliderBullet"></div>
+  </div>
+  <div class="timerBar" id="timerBar"></div>
 </div>
+  <button onclick="rightSliding()">Next Slide</button>
+  <p id="index"></p>
   <pre> 
     test 23
     test 22
@@ -62,22 +168,66 @@ layout: default
   </pre>
 
   <script>
-    let imgIndex = 0;
-    const src = [
-      "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
-      "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
-      "https://aothunxuxu.com/style/images/art/xuxu-gift.png"
-    ],["assets/images/slider-bg1.jpg","assets/images/slider-bg2.jpg","assets/images/slider-bg3.jpg"],["18px","18px","45px"],["132px","132px","405px"];
+    
+  let imgIndex = 0;
+  const src = [
+    "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
+    "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
+    "https://aothunxuxu.com/style/images/art/xuxu-gift.png"
+  ];
+  const bgsrc = [
+    "https://aothunxuxu.com/style/images/art/slider-bg1.jpg",
+    "https://aothunxuxu.com/style/images/art/slider-bg2.jpg",
+    "https://aothunxuxu.com/style/images/art/slider-bg3.jpg"
+  ];
+  const imgy = ["4px", "4px", "45vh"];
+  const imgx = ["23vw", "23vw", "40vw"];
+  const imgWidth = ["15vw", "15vw", "27vw"];
 
-    function slider() {
-      imgIndex = (imgIndex + 1) % src.length;
-      const sliderImg = document.getElementById("sliderImage");
-      sliderImg.src = src[imgIndex];
-      sliderImg.top=src[2][imgIndex];
-      sliderImg.left=src[3][imgIndex];
-      const sliderBg=document.getElementById("sliderBackground");
-      sliderBg.src=src[1][imgIndex];
-    }
+  const bullets = document.querySelectorAll(".sliderBullet");
+
+  bullets.forEach((bullet, i) => {
+    bullet.dataset.index = i;
+    bullet.addEventListener("click", () => {
+      imgIndex = i;
+      updateSlider();
+    });
+  });
+const timer=document.getElementById("timerBar");
+const sliderBg = document.getElementById("sliderBackground");
+  function updateSlider() {
+    
+    timer.classList.remove("animate");
+    void timer.offsetHeight;
+    timer.classList.add("animate");
+    const sliderImg = document.getElementById("sliderImage");
+    const indexText = document.getElementById("index");
+
+    sliderBg.src = bgsrc[imgIndex];
+    sliderImg.src = src[imgIndex];
+    sliderImg.style.bottom = imgy[imgIndex];
+    sliderImg.style.left = imgx[imgIndex];
+    sliderImg.style.width = imgWidth[imgIndex];
+    indexText.textContent = imgIndex;
+
+    // Update bullets
+    bullets.forEach((b, i) => {
+      b.classList.toggle("active", i === imgIndex);
+    });
+  }
+
+  function rightSliding() {
+    imgIndex = (imgIndex + 1) % src.length; // wrap around safely
+    updateSlider();
+  }
+function leftSliding() {
+    imgIndex = (imgIndex - 1) % src.length; // wrap around safely
+    updateSlider();
+  }
+timer.addEventListener("animationend",()=>{
+              rightSliding();
+});
+  updateSlider(); // Initial setup
   </script>
 
 </body>
