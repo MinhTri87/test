@@ -101,10 +101,10 @@ layout: default
             
     }
     .slider:hover .leftArrow{
-      opacity:0.5;
+      opacity:0.2;
     }
     .slider:hover .rightArrow{
-      opacity:0.5;
+      opacity:0.2;
     }
     .slider {
       width: 100%;
@@ -126,7 +126,18 @@ layout: default
       top:18px;
       left:132px;
     }
-    
+    .leftArrow i{
+      color:white;
+    }
+    .rightArrow i{
+      color:white;
+    }
+    .leftArrow:hover{
+      opacity:0.5;
+    }
+    .rightArrow:hover{
+      opacity:0.5;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
@@ -134,8 +145,8 @@ layout: default
 <div class="slider">
   <img src="https://aothunxuxu.com/style/images/art/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
   <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" class="sliderImg" id="sliderImage">
-  <button class="leftArrow" onclick="leftSliding()">s</button>
-  <button class="rightArrow" onclick="rightSliding()">s</button>
+  <button class="leftArrow" onclick="leftSliding()"><i class="fa fa-chevron-left"></i></button>
+  <button class="rightArrow" onclick="rightSliding()"><i class="fa fa-chevron-right"></i></button>
   <div class="sliderBullets">
     <div class="sliderBullet"></div>
     <div class="sliderBullet"></div>
