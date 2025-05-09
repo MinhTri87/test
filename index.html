@@ -97,46 +97,21 @@ layout: default
       height:44px;
       border-radius:2px;
       background:black;
-      opacity:0;
-            
+      opacity:0;            
     }
     .slider:hover .leftArrow{
-      opacity:0.2;
+      opacity:0.4;
     }
     .slider:hover .rightArrow{
-      opacity:0.2;
-    }
-    .slider {
-      width: 100%;
-      height: 100%;
-      max-height:600px;
-    }
-    .sliderBg{
-      width:100%;
-      height:100%;
-      z-index:10;
-      background-size:cover;
-      background-repeat:no-repeat;
-    }
-    .sliderImg{
-      z-index:11;
-      width:auto;
-      height:auto;
-      position:absolute;
-      top:18px;
-      left:132px;
-    }
+      opacity:0.4;
+    }    
     .leftArrow i{
       color:white;
+      opacity:0.8;
     }
     .rightArrow i{
       color:white;
-    }
-    .leftArrow i:hover .leftArrow{
-      opacity:0.5;
-    }
-    .rightArrow i:hover .rightArrow{
-      opacity:0.5;
+      opacity:0.8;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
@@ -157,7 +132,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 25
+    test 26
   </pre>
 
   <script>
