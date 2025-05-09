@@ -131,7 +131,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 27
+    test 28
   </pre>
 
   <script>
@@ -176,7 +176,7 @@ const sliderBg = document.getElementById("sliderBackground");
     sliderImg.style.bottom = imgy[imgIndex];
     sliderImg.style.left = imgx[imgIndex];
     sliderImg.style.width = imgWidth[imgIndex];
-    sliderImg.style.transform=translateY([translate]);
+    sliderImg.style.transform=translateY(translate[imgIndex]);
     indexText.textContent = imgIndex;
 
     // Update bullets
