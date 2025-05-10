@@ -125,7 +125,7 @@ layout: default
 			width:auto;
 			height:auto;
 			display:flex;
-			list-style-position:outside;
+			flex-direction:column;
 			gap:20px;
 		}
 		.sliderList li{
@@ -167,7 +167,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 35
+    test 36
   </pre>
 
   <script>
@@ -206,7 +206,7 @@ layout: default
 			"In áo bóng đá",
 			"Liên hệ"
 		];
-    const Lists=[list1,list2,list3];
+    const lists=[list1,list2,list3];
   const imgy = ["2px", "2px", "15vh"];
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
@@ -243,7 +243,7 @@ const sliderBg = document.getElementById("sliderBackground");
     const currentList = lists[imgIndex];
   sliderList.innerHTML = currentList
     .map((item, i) => {
-      if (item.toLowerCase() === "liên hệ") {
+      if (item.toUpperCase() === "liên hệ") {
         return `<li><button class="contactButton">Liên hệ</button></li>`;
       }
       const size = i === 0 ? "19px" : "14px";
