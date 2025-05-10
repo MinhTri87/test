@@ -125,17 +125,23 @@ layout: default
 			width:auto;
 			height:auto;
 			display:flex;
+			list-style-position: outside;
 			gap:20px;
 		}
 		.sliderList li{
-			font-size:19px;
-		}
-		.sliderList li{
 			font-size:14px;
+			box-sizing:border-box;
+			background:white;
+			padding:5px 10px 5px 10px;
+		}
+		.sliderList li:first-child{
+			font-size:19px;
 		}
 		.contactButton{
 			color:white;
 			background:blue;
+			border-radius:3px;
+			padding:5px 10px 5px 10px;
 		}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
@@ -161,7 +167,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 33
+    test 34
   </pre>
 
   <script>
