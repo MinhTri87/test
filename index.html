@@ -174,7 +174,7 @@ layout: default
   <script>
     
   let imgIndex = 0;
-	  let currentImg=0;
+	  let imgIndex=0;
   const src = [
     "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
     "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
@@ -235,14 +235,14 @@ const sliderBg = document.getElementById("sliderBackground");
     const sliderImg = document.getElementById("sliderImage");
     const indexText = document.getElementById("index");
 
-    sliderBg.src = bgsrc[currentIndex];
-    sliderImg.src = src[currentIndex];
-    sliderImg.style.bottom = imgy[currentIndex];
-    sliderImg.style.left = imgx[currentIndex];
-    sliderImg.style.width = imgWidth[currentIndex];
-    sliderImg.style.transform = `translateY(${translate[currentIndex]}%)`;
-    indexText.textContent = currentIndex;
-    const currentList = lists[currentIndex];
+    sliderBg.src = bgsrc[imgIndex];
+    sliderImg.src = src[imgIndex];
+    sliderImg.style.bottom = imgy[imgIndex];
+    sliderImg.style.left = imgx[imgIndex];
+    sliderImg.style.width = imgWidth[imgIndex];
+    sliderImg.style.transform = `translateY(${translate[imgIndex]}%)`;
+    indexText.textContent = imgIndex;
+    const currentList = lists[imgIndex];
   sliderList.innerHTML = currentList
     .map((item, i) => {
       if (item.toUpperCase() === "liên hệ") {
@@ -254,22 +254,22 @@ const sliderBg = document.getElementById("sliderBackground");
     .join("");
 
   // Update position of sliderList
-  sliderList.style.top = listy[currentIndex];
-  sliderList.style.left = listx[currentIndex];
+  sliderList.style.top = listy[imgIndex];
+  sliderList.style.left = listx[imgIndex];
     };
 
     // Update bullets
     bullets.forEach((b, i) => {
-      b.classList.toggle("active", i === currentImg);
+      b.classList.toggle("active", i === imgIndex);
     });
   }
 
   function rightSliding() {
-    currentImg = (imgIndex + 1) % src.length; // wrap around safely
+    imgIndex = (imgIndex + 1) % src.length; // wrap around safely
     updateSlider();
   }
 function leftSliding() {
-    currentImg = (imgIndex - 1) % src.length; // wrap around safely
+    imgIndex = (imgIndex - 1+src.length) % src.length; // wrap around safely
     updateSlider();
   }
 timer.addEventListener("animationend",()=>{
