@@ -120,8 +120,8 @@ layout: default
 		.sliderList{
 			list-style-type:none;
 			position:absolute;
-			top:40vh;
-			left:50vh;
+			top:40%;
+			left:50%;
 			width:auto;
 			height:auto;
 			display:flex;
@@ -168,12 +168,13 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 36
+    test 37
   </pre>
 
   <script>
     
   let imgIndex = 0;
+	  let currentImg=0;
   const src = [
     "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
     "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
@@ -212,8 +213,8 @@ layout: default
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
     const translate=["0%","0%","-50%"];
-		const listy=["40vh","20vh","20vh"];
-		const listx=["50vw","60vw","5vw"];
+		const listy=["40%","20%","20%"];
+		const listx=["50%","60%","5%"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
     const sliderList=document.getElementById("sliderList");
@@ -259,16 +260,16 @@ const sliderBg = document.getElementById("sliderBackground");
 
     // Update bullets
     bullets.forEach((b, i) => {
-      b.classList.toggle("active", i === imgIndex);
+      b.classList.toggle("active", i === currentImg);
     });
   }
 
   function rightSliding() {
-    imgIndex = (imgIndex + 1) % src.length; // wrap around safely
+    currentImg = (imgIndex + 1) % src.length; // wrap around safely
     updateSlider();
   }
 function leftSliding() {
-    imgIndex = (imgIndex - 1) % src.length; // wrap around safely
+    currentImg = (imgIndex - 1) % src.length; // wrap around safely
     updateSlider();
   }
 timer.addEventListener("animationend",()=>{
