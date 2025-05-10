@@ -117,6 +117,26 @@ layout: default
       color:white;
       opacity:0.8;
     }
+		.sliderList{
+			list-style-type:none;
+			position:absolute;
+			top:20vh;
+			left:5vh;
+			width:auto;
+			height:auto;
+			display:flex;
+			gap:20px;
+		}
+		.sliderList li{
+			font-size:19px;
+		}
+		.sliderList li{
+			font-size:14px;
+		}
+		.contactButton{
+			color:white;
+			background:blue;
+		}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
@@ -124,6 +144,11 @@ layout: default
 <div class="slider">
   <img src="https://aothunxuxu.com/style/images/art/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
   <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" class="sliderImg" id="sliderImage">
+  <ul class="sliderList" id="sliderList">
+    <li>Chuyên cung cấp áo thun trơn.</li>
+    <li>Cổ tròn - Cổ tim - Cá sấu.</li>
+    <li><button class="contactButton" onclick="#">Liên hệ</button></li>
+  </ul>
   <button class="leftArrow" onclick="leftSliding()"><i class="fa fa-chevron-left"></i></button>
   <button class="rightArrow" onclick="rightSliding()"><i class="fa fa-chevron-right"></i></button>
   <div class="sliderBullets">
@@ -136,7 +161,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 32
+    test 33
   </pre>
 
   <script>
@@ -152,10 +177,35 @@ layout: default
     "https://aothunxuxu.com/style/images/art/slider-bg2.jpg",
     "https://aothunxuxu.com/style/images/art/slider-bg3.jpg"
   ];
-  const imgy = ["2px", "2px", "50vh"];
+		const list1=[
+			"Chuyên cung cấp áo thun trơn.",
+			"Cổ tròn - Cổ tim - Cá sấu.",
+			"Liên hệ"
+		];
+		const list2=[
+			"Thêu & in đồng phục",
+			"Áo công ty - nhà hàng - cafe",
+			"Áo lớp - Áo nhóm",
+			"Áo sự kiện",
+			"Áo gia đình",
+			"Áo cặp - áo lẻ",
+			"Liên hệ"
+		];
+		const list3=[
+			"Dịch vụ làm quà tặng",
+			"Huy hiệu",
+			"Tranh ghép",
+			"In ly",
+			"Lót chuột",
+			"In áo bóng đá",
+			"Liên hệ"
+		];
+  const imgy = ["2px", "2px", "15vh"];
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
     const translate=["0%","0%","-50%"];
+		const listy=["60vh","60vh","80vh"];
+		const listx=["5vw","60vw","50vw"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
 
