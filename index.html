@@ -102,11 +102,11 @@ layout: default
       opacity:0;            
     }
     .slider:hover .leftArrow{
-      opacity:0.4;
+      opacity:0.8;
       cursor:pointer;
     }
     .slider:hover .rightArrow{
-      opacity:0.4;
+      opacity:0.8;
       cursor:pointer;
     }    
     .leftArrow i{
@@ -168,13 +168,11 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 38
+    test 39
   </pre>
 
   <script>
-    
   let imgIndex = 0;
-	  let imgIndex=0;
   const src = [
     "https://aothunxuxu.com/style/images/art/xuxu-bg1a.png",
     "https://aothunxuxu.com/style/images/art/xuxu-slider-back2.png",
@@ -185,7 +183,7 @@ layout: default
     "https://aothunxuxu.com/style/images/art/slider-bg2.jpg",
     "https://aothunxuxu.com/style/images/art/slider-bg3.jpg"
   ];
-		const list1=[
+const list1=[
 			"Chuyên cung cấp áo thun trơn.",
 			"Cổ tròn - Cổ tim - Cá sấu.",
 			"Liên hệ"
@@ -208,16 +206,13 @@ layout: default
 			"In áo bóng đá",
 			"Liên hệ"
 		];
-    const lists=[list1,list2,list3];
-  const imgy = ["2px", "2px", "15vh"];
+  const imgy = ["2px", "2px", "20vh"];
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
     const translate=["0%","0%","-50%"];
-		const listy=["40%","20%","20%"];
-		const listx=["50%","60%","5%"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
-    const sliderList=document.getElementById("sliderList");
+
   bullets.forEach((bullet, i) => {
     bullet.dataset.index = i;
     bullet.addEventListener("click", () => {
@@ -228,24 +223,28 @@ layout: default
 const timer=document.getElementById("timerBar");
 const sliderBg = document.getElementById("sliderBackground");
   function updateSlider() {
-    
-    timer.classList.remove("animate");
-    void timer.offsetHeight;
-    timer.classList.add("animate");
-    const sliderImg = document.getElementById("sliderImage");
-    const indexText = document.getElementById("index");
+  // Restart timer animation
+  timer.classList.remove("animate");
+  void timer.offsetHeight; // trigger reflow
+  timer.classList.add("animate");
 
-    sliderBg.src = bgsrc[imgIndex];
-    sliderImg.src = src[imgIndex];
-    sliderImg.style.bottom = imgy[imgIndex];
-    sliderImg.style.left = imgx[imgIndex];
-    sliderImg.style.width = imgWidth[imgIndex];
-    sliderImg.style.transform = `translateY(${translate[imgIndex]}%)`;
-    indexText.textContent = imgIndex;
-    const currentList = lists[imgIndex];
+  const sliderImg = document.getElementById("sliderImage");
+  const indexText = document.getElementById("index");
+
+  // Update image
+  sliderBg.src = bgsrc[imgIndex];
+  sliderImg.src = src[imgIndex];
+  sliderImg.style.bottom = imgy[imgIndex];
+  sliderImg.style.left = imgx[imgIndex];
+  sliderImg.style.width = imgWidth[imgIndex];
+  sliderImg.style.transform = `translateY(${translate[imgIndex]})`;
+
+  // Update slider list
+  const lists = [list1, list2, list3];
+  const currentList = lists[imgIndex];
   sliderList.innerHTML = currentList
     .map((item, i) => {
-      if (item.toUpperCase() === "liên hệ") {
+      if (item.toLowerCase() === "liên hệ") {
         return `<li><button class="contactButton">Liên hệ</button></li>`;
       }
       const size = i === 0 ? "19px" : "14px";
@@ -256,26 +255,29 @@ const sliderBg = document.getElementById("sliderBackground");
   // Update position of sliderList
   sliderList.style.top = listy[imgIndex];
   sliderList.style.left = listx[imgIndex];
-    };
 
-    // Update bullets
-    bullets.forEach((b, i) => {
-      b.classList.toggle("active", i === imgIndex);
-    });
-  }
+  // Debug text
+  indexText.textContent = imgIndex;
+
+  // Update bullets
+  bullets.forEach((b, i) => {
+    b.classList.toggle("active", i === imgIndex);
+  });
+}
+
 
   function rightSliding() {
     imgIndex = (imgIndex + 1) % src.length; // wrap around safely
     updateSlider();
   }
 function leftSliding() {
-    imgIndex = (imgIndex - 1+src.length) % src.length; // wrap around safely
+    imgIndex = (imgIndex - 1 +src.length) % src.length; // wrap around safely
     updateSlider();
   }
 timer.addEventListener("animationend",()=>{
               rightSliding();
 });
-  updateSlider(); // Initial setup
+  updateSlider(); // Initial 
   </script>
 
 </body>
