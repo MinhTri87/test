@@ -120,13 +120,14 @@ layout: default
 		.sliderList{
 			list-style-type:none;
 			position:absolute;
-			top:20vh;
-			left:5vh;
+			top:40vh;
+			left:50vh;
 			width:auto;
 			height:auto;
 			display:flex;
 			flex-direction:column;
 			gap:20px;
+			z-index:20;
 		}
 		.sliderList li{
 			font-size:14px;
@@ -211,8 +212,8 @@ layout: default
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
     const translate=["0%","0%","-50%"];
-		const listy=["60vh","60vh","80vh"];
-		const listx=["5vw","60vw","50vw"];
+		const listy=["40vh","20vh","20vh"];
+		const listx=["50vw","60vw","5vw"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
     const sliderList=document.getElementById("sliderList");
