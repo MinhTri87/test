@@ -118,32 +118,30 @@ layout: default
       opacity:0.8;
     }
 		.sliderList{
-			list-style-type:none;
 			position:absolute;
 			top:40%;
 			left:50%;
-			width:auto;
-			height:auto;
-			display:flex;
-			flex-direction:column;
-			gap:20px;
 			z-index:20;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
 		}
-		.sliderList li{
+		.sliderList div{
 			font-size:14px;
-			box-sizing:border-box;
 			background:white;
 			padding:5px 10px 5px 10px;
+      margin:10px 0px 10px 20px;
 		}
-		.sliderList li:first-child{
-			font-size:19px;
-		}
-		.contactButton{
-			color:white;
-			background:blue;
-			border-radius:3px;
-			padding:5px 10px 5px 10px;
-		}
+.sliderList div:first-child{
+  margin:20px 0px 20px 20px;
+}
+.sliderList a{
+  color:white;
+  background:blue;
+  cursor:pointer;
+  padding:8px 15px 8px 15px;
+  margin:10px 0px 0px 20px;
+}   
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
 </head>
@@ -151,11 +149,11 @@ layout: default
 <div class="slider">
   <img src="https://aothunxuxu.com/style/images/art/slider-bg1.jpg" alt="slider background" class="sliderBg" id="sliderBackground">
   <img src="https://aothunxuxu.com/style/images/art/xuxu-bg1a.png" alt="pic 1" class="sliderImg" id="sliderImage">
-  <ul class="sliderList" id="sliderList">
-    <li>Chuyên cung cấp áo thun trơn.</li>
-    <li>Cổ tròn - Cổ tim - Cá sấu.</li>
-    <li><button class="contactButton" onclick="#">Liên hệ</button></li>
-  </ul>
+  <div class="sliderList" id="sliderList">
+    <div>Chuyên cung cấp áo thun trơn.</div>
+    <div>Cổ tròn - Cổ tim - Cá sấu.</div>
+    <a href="#">Liên hệ</a>
+  </div>
   <button class="leftArrow" onclick="leftSliding()"><i class="fa fa-chevron-left"></i></button>
   <button class="rightArrow" onclick="rightSliding()"><i class="fa fa-chevron-right"></i></button>
   <div class="sliderBullets">
@@ -168,7 +166,7 @@ layout: default
   <button onclick="rightSliding()">Next Slide</button>
   <p id="index"></p>
   <pre> 
-    test 41
+    test 42
   </pre>
 
   <script>
@@ -186,7 +184,7 @@ layout: default
 const list1=[
 			"Chuyên cung cấp áo thun trơn.",
 			"Cổ tròn - Cổ tim - Cá sấu.",
-			"Liên hệ"
+			"LIÊN HỆ"
 		];
 		const list2=[
 			"Thêu & in đồng phục",
@@ -195,7 +193,7 @@ const list1=[
 			"Áo sự kiện",
 			"Áo gia đình",
 			"Áo cặp - áo lẻ",
-			"Liên hệ"
+			"LIÊN HỆ"
 		];
 		const list3=[
 			"Dịch vụ làm quà tặng",
@@ -204,13 +202,13 @@ const list1=[
 			"In ly",
 			"Lót chuột",
 			"In áo bóng đá",
-			"Liên hệ"
+			"LIÊN HỆ"
 		];
   const imgy = ["2px", "2px", "50%"];
   const imgx = ["23vw", "23vw", "40vw"];
   const imgWidth = ["18vw", "18vw", "27vw"];
     const translate=["0%","0%","50%"];
-		const listy=["40%","10%","10%"];
+		const listy=["40%","5%","5%"];
 		const listx=["45%","50%","4%"];
 
   const bullets = document.querySelectorAll(".sliderBullet");
@@ -246,11 +244,11 @@ const sliderBg = document.getElementById("sliderBackground");
   const currentList = lists[imgIndex];
   sliderList.innerHTML = currentList
     .map((item, i) => {
-      if (item.toLowerCase() === "liên hệ") {
-        return `<li><button class="contactButton">Liên hệ</button></li>`;
+      if (item.toUpperCase() === "LIÊN HỆ") {
+        return `<a href="https://aothunxuxu.com/">LIÊN HỆ</a>`;
       }
       const size = i === 0 ? "19px" : "14px";
-      return `<li style="font-size:${size}">${item}</li>`;
+      return `<div style="font-size:${size}">${item}</div>`;
     })
     .join("");
 
