@@ -235,14 +235,14 @@ const sliderBg = document.getElementById("sliderBackground");
     const sliderImg = document.getElementById("sliderImage");
     const indexText = document.getElementById("index");
 
-    sliderBg.src = bgsrc[imgIndex];
-    sliderImg.src = src[imgIndex];
-    sliderImg.style.bottom = imgy[imgIndex];
-    sliderImg.style.left = imgx[imgIndex];
-    sliderImg.style.width = imgWidth[imgIndex];
-    sliderImg.style.transform = `translateY(${translate[imgIndex]}%)`;
-    indexText.textContent = imgIndex;
-    const currentList = lists[imgIndex];
+    sliderBg.src = bgsrc[currentIndex];
+    sliderImg.src = src[currentIndex];
+    sliderImg.style.bottom = imgy[currentIndex];
+    sliderImg.style.left = imgx[currentIndex];
+    sliderImg.style.width = imgWidth[currentIndex];
+    sliderImg.style.transform = `translateY(${translate[currentIndex]}%)`;
+    indexText.textContent = currentIndex;
+    const currentList = lists[currentIndex];
   sliderList.innerHTML = currentList
     .map((item, i) => {
       if (item.toUpperCase() === "liên hệ") {
@@ -254,8 +254,8 @@ const sliderBg = document.getElementById("sliderBackground");
     .join("");
 
   // Update position of sliderList
-  sliderList.style.top = listy[imgIndex];
-  sliderList.style.left = listx[imgIndex];
+  sliderList.style.top = listy[currentIndex];
+  sliderList.style.left = listx[currentIndex];
     };
 
     // Update bullets
