@@ -269,12 +269,12 @@ border-left: 1px solid #fff;border-top: 1px solid #fff;" fb-xfbml-state="rendere
     //move "Để tin nhắn của bạn trên FB" down to hide it
     widgetArea.addEventListener("click", () => {
         widgetArea.style.transform = 'translateY(100px)';
-        setInterval(500,facebookWidget.style.transform = 'translateY(0)');
+        setInterval(facebookWidget.style.transform = 'translateY(0)',500);
         //show the facebook widget
     });
     closing.addEventListener("click", () => {
         facebookWidget.style.transform = 'translateY(100%)';      
-        setInterval(widgetArea.style.transform = 'translateY(0)');
+        setInterval(widgetArea.style.transform = 'translateY(0)',500);
         //show the facebook widget
     });
 </script>
