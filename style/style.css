@@ -1,10 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    padding:0px;
 }
 
 * {
-    margin:0px;
+    padding: 0px;
+    margin: 0px;
     box-sizing: border-box;
 }
 /*slider css*/
@@ -14,8 +14,6 @@ body {
     height: auto;
     max-height: 600px;
     overflow: hidden;
-    padding:0px;
-    margin:0px;
 }
 
 .sliderBg {
@@ -283,8 +281,9 @@ body {
     }
 
 .productWrapper {
-    width:80%;
+    max-width: 80%;
     margin-bottom: 50px;
+    margin-inline:auto;
 }
 
 .recentProducts .item {
