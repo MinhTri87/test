@@ -12,6 +12,8 @@ body {
     height: auto;
     max-height: 600px;
     overflow: hidden;
+    padding:0px;
+    margin:0px;
 }
 
 .sliderBg {
