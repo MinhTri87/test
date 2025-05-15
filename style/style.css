@@ -485,9 +485,6 @@ body {
     }
 
 @media(max-width:991px) {
-    .owl-stage-outer {
-        margin: 5vw 5vw 0px 5vw;
-    }
 
     .videoContainer {
         flex-direction: column;
