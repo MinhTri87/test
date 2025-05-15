@@ -286,11 +286,27 @@ border-left: 1px solid #fff;border-top: 1px solid #fff;" fb-xfbml-state="rendere
     };
 
     // Scroll to top when button is clicked
-    document.getElementById("scrollTopBtn").addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+    function scrollToTop(duration = 600) {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // ease-out
+
+        window.scrollTo(0, start * (1 - ease));
+
+        if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function () {
+    scrollToTop(600); // custom duration in ms
+});
 </script>
   </body>
