@@ -1,150 +1,20 @@
-
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="script" href="/.html">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-.test {
-      color: blue;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      background-color: white;
-      border-bottom: 0.5px solid black;
-      display: flex;
-      align-items: center;
-      padding: 20px 40px;
-      width: 100%;
-    }
-
-    .logo {
-      flex: 1; /* Takes minimum space */
-    }
-
-    .logo h1 a {
-      color: blue;
-      padding:0 0 0 100px;
-      text-decoration: none;
-    }
-
-    .navBar {
-      flex: 2; /* Centers first list */
-      display: flex;
-      justify-content: center;
-    }
-
-    .navRight {
-      flex: 1; /* Aligns second list to the right */
-      padding:0 100px 0 0;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .nav {
-      display: flex;
-      gap: 20px;
-      list-style-type: none;
-    }
-
-    .navList {
-      cursor: pointer;
-    }
-    .navList a{
-      text-decoration:none;
-      color:black;
-    }
-
-    .navList:hover {
-      text-decoration: underline;
-    }.navRightList {
-      cursor: pointer;
-    }
-    .navRightList a{
-      text-decoration:none;
-      color:black;
-    }
-
-    .navRightList:hover {
-      text-decoration: underline;
-    }
-    .banner{
-      width:70%;
-      text-align:center;
-      justify items: center;
-      padding: 50px 100px 50px 100px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!--global styling-->
+    <link rel="stylesheet" href="./style/products-style.css">
 </head>
-
 <body>
-  <header>
-    <div class="logo">
-      <h1><a href="https://github.com/devfolioco/brand-assets"><b>Copycat</b></a></h1>
-    </div>
-    <nav class="navBar">
-      <ul class="nav">
-        <li class="navList"><a href="https://devfolio.co/hackathons">Hackathons</a></li>
-          <li class="navList" target="_blank"><a href="https://devfolio.co/about">About</a></li>
-          <li class="navList"><a href="https://devfolio.co/blog">Blog</a></li>
-      </ul>
-    </nav>
-    <nav class="navRight">
-      <ul class="nav">
-        <li class="navRightList"><a href="https://devfolio.co/organize"><b>Organize Hackathons</b></a></li>
-        <li class="navRightList"><a href="https://devfolio.co/signin"><b>Sign in</b></a></li>
-      </ul>
-    </nav>
-  </header>
-  <section>
-    <div class="banner">
-      <span>redefining<b> economic<br> oppotunities</b> for builders with</span>
-      <br><span class="test"></span>
-  
-  <script>
-    let texts = ["hackathons", "grants", "fellowships"];
-    let index = 0;
-    let charIndex = 0;
-    let isDeleting = false; // Track forward or backward
-    let displayElement = document.querySelector(".test");
-
-    function updateText() {
-      let interval = setInterval(() => {
-        if (!isDeleting) {
-          // Typing forward
-          if (charIndex <= texts[index].length) {
-            displayElement.innerHTML = texts[index].slice(0, charIndex);
-            charIndex++;
-          } else {
-            // Pause before deleting
-            isDeleting = true;
-            setTimeout(() => {}, 500);
-          }
-        } else {
-          // Typing backward
-          if (charIndex > 0) {
-            displayElement.innerHTML = texts[index].slice(0, charIndex);
-            charIndex--;
-          } else {
-            // Move to the next word
-            isDeleting = false;
-            index = (index + 1) % texts.length;
-          }
-        }
-
-        // Stop and restart animation
-        if (charIndex < 0 || charIndex > texts[index].length) {
-          clearInterval(interval);	
-          setTimeout(updateText, 100); // Wait before starting again
-        }
-      }, 100); // Speed of typing and deleting
-    }
-
-    updateText();
-  </script>
+  <div class="
 </body>
