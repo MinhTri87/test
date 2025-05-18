@@ -1,1 +1,127 @@
+body {
+            margin: 0px;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+        }
 
+        .page-title {
+            width: 100%;
+            height: 120px;
+            vertical-align: middle;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .page-title img {
+                background-size: cover;
+            }
+
+            .page-title h1 {
+                margin-top: -11px;
+                font-size: 22px;
+                position: absolute;
+                top: 50%;
+                color: #515151;
+                font-weight: 300;
+                left: 20px;
+            }
+
+        .categorySelector {
+            max-width: 90vw;
+            align-items: center;
+            display: flex;
+            list-style-type: none;
+            justify-content: space-between;
+            margin-inline: auto;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category a {
+            cursor: pointer;
+            text-decoration: none;
+            margin:0px 15px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #616161;
+            white-space: nowrap;
+        }
+        .category a.active{
+            color:orange;
+        }
+
+            .category a i {
+                font-size: 8px;
+                margin-right: 10px;
+            }
+            .products{
+                width:90%;
+                list-style-type:none;
+                display:flex;
+                flex-wrap:wrap;
+                align-items: stretch;
+                margin-inline: auto;
+            }
+        .product {
+            position: relative;
+            overflow: hidden;
+            width:32%;
+            margin:5px 5px;
+            transition: all 0.5s ease;
+        }
+        .product img{
+          width:100%;
+          height:100%;
+        }
+
+    .product .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(230,126,34,0.92);
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .product:hover .overlay {
+        opacity: 1;
+    }
+
+    .product .info {
+        position: absolute;
+        top: -100px;
+      padding-left:20px;
+        color: #fff;
+        opacity: 0;
+        transition: 0.3s;
+        border-radius: 50%;
+        padding: 25px;
+    }
+
+    .product:hover .info {
+        opacity: 1;
+        top: 0px;
+    }
+.info h1{
+  text-transform:uppercase;
+  
+        font-size: 18px;
+      line-height:22px;
+
+        font-weight: 700;
+      display:block;
+}
+.info p{
+  font-size:12px;
+  font-weight:300;
+}
+@media(max-width:776px){
+    .linkedPanel{
+        width:100%;
+    }
+    .category span i{
+        display:none;
+    }
+}
