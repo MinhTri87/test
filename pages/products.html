@@ -9,15 +9,168 @@ layout: default
     <title>Trang chủ</title>
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--global styling-->
     <link rel="stylesheet" href="./style/products-style.css">
 </head>
 <body>
-  <div class="page-title">
-      <img src="./assets/ptbg1.jpg">
-      Mẫu màu trên áo trơn
-  </div>
+    <div class="page-title">
+        <img src="../assets/ptbg1.jpg">
+        <h1>Mẫu màu trên áo trơn</h1>
+    </div>
+    <ul class="categorySelector">
+        <li class="category"><a href="#" id="allCategory" class="active"><i class="fa fa-circle-thin"></i>  Tất cả</a></li>
+        <li class="category"><a href="#" data-category="ao-thun-tron"><i class="fa fa-circle-thin"></i>  Áo cổ tròn</a></li>
+        <li class="category"><a href="#" data-category="ao-thun-tron-co-tim"><i class="fa fa-circle-thin"></i>  Áo cổ tim</a></li>
+        <li class="category"><a href="#" data-category="ao-khoac-co-day"><i class="fa fa-circle-thin"></i>  Áo khoác nỉ có dây kéo</a></li>
+        <li class="category"><a href="#" data-category="ao-khoac-khong-day-keo"><i class="fa fa-circle-thin"></i>  Áo khoác nỉ chui cổ</a></li>
+        <li class="category"><a href="#" data-category="ao-thun-tron-ca-sau"><i class="fa fa-circle-thin"></i>  Áo cá sấu</a></li>
+    </ul>
+    <ul class="products">
+        
+    </ul>
+
+    <script>
+        const vietnameseLookup = {
+            'den': 'đen', 'do': 'đỏ', 'dam': 'đậm', 'xanh': 'xanh', 'cam': 'cam', 'tuoi': 'tươi',
+            'trang': 'trắng', 'vang': 'vàng', 'do-tuoi': 'đỏ tươi', 'hong': 'hồng', 'sen': 'sen', 'tim': 'tím',
+            'ket': 'két', 'dom': 'đốm', 'da': 'da', 'nhat': 'nhạt', 've': 've', 'chai':'chai', 'gia': 'già',
+            'thien': 'thiên', 'thanh':'thanh', 'bien': 'biển', 'nau': 'nâu', 'phan': 'phấn', 'reu': 'rêu', 'ngoc': 'ngọc',
+            'neon': 'neon', 'da': 'dạ', 'quang':'quang', 'bich': 'bích', 'chuoi': 'chuối', 'non': 'non', 'xam': 'xám', 'la': 'lá'
+        };
+
+        const spliceLookup= {
+            "ao-thun-tron":'4',
+            "ao-thun-tron-co-tim":'6',
+            "ao-khoac-co-day":'5',
+            "ao-khoac-khong-day-keo":'6',
+            "ao-thun-tron-ca-sau":'6'
+        };
+        const inStockState={
+            "ao-thun-tron":"Có sẵn tại cửa hàng",
+            "ao-thun-tron-co-tim":"Liên hệ đặt may",
+            "ao-khoac-co-day":"Liên hệ đặt may",
+            "ao-khoac-khong-day-keo":"Liên hệ đặt may",
+            "ao-thun-tron-ca-sau":"Liên hệ đặt may"            
+        };
+        const container = document.querySelector(".products");
+        function productsFetching(){
+        fetch('../products/products.json')
+            .then(res => res.json())
+            .then(data => {
+                data.folders.forEach(folder => {
+                    const files = data[folder];
+
+                    files.forEach(filename => {
+                        const base = filename.replace('.jpg', '');
+
+                        // Remove known format prefix automatically
+                        const split = base.split('-');
+                        const sliceIndex = parseInt(spliceLookup[folder] || 4); // fallback to 4
+                        const colorWords = split.slice(sliceIndex); // splice as in lookup
+
+                        // Translate each part safely
+                        const translated = colorWords
+                            .map(word => vietnameseLookup[word] || word)
+                            .join(' ')
+                            .trim();
+
+                        const imgPath = `../products/${folder}/${filename}`;
+                        let inStock=(inStockState[folder]);
+
+                        const li = document.createElement("li");
+                        li.className = "product";
+                        li.innerHTML = `
+                            <a href="#">
+                                <img src="${imgPath}" alt="${translated}">
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="info"><h1>${translated}</h1>
+                                <p>${inStock}</p>
+                            </div>
+                        `;
+
+                        container.appendChild(li);
+                        // Animate in
+                        requestAnimationFrame(() => {
+                          li.style.opacity = '1';
+                          li.style.transform = 'translateY(0)';
+                        });
+
+                    });
+                });
+            })
+            .catch(err => {
+                console.error("❌ Failed to load or process products.json:", err);
+            });
+        }
+        productsFetching();
+        document.getElementById("allCategory").addEventListener("click", () => {
+            container.innerHTML='';    
+            productsFetching()
+        });
+        
+        const categories = document.querySelectorAll(".category a");
+
+        categories.forEach((categoryLink) => {
+            categoryLink.addEventListener("click", (e) => {
+                e.preventDefault();
+            
+                // Highlight active link
+                categories.forEach(link => link.classList.remove("active"));
+                categoryLink.classList.add("active");
+
+                // Get folder name from data-category
+                const currentCategory = categoryLink.dataset.category;
+                let inStock=(inStockState[currentCategory]);
+
+                // Fetch and display products
+                fetch('../products/products.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        const files = data[currentCategory];
+                        if (!files) return;
+                    
+                        // Clear old items
+                        container.innerHTML = '';
+                    
+                        files.forEach(filename => {
+                            const base = filename.replace('.jpg', '');
+                            const split = base.split('-');
+                        const sliceIndex = parseInt(spliceLookup[currentCategory] || 4); // fallback to 4
+                        const colorWords = split.slice(sliceIndex); // splice as in lookup
+                        
+                            const translated = colorWords
+                                .map(word => vietnameseLookup[word] || word)
+                                .join(' ')
+                                .trim();
+                        
+                            const imgPath = `../products/${currentCategory}/${filename}`;                            
+
+                            const li = document.createElement("li");
+                            li.className = "product";
+                            li.innerHTML = `
+                                <a href="#">
+                                    <img src="${imgPath}" alt="${translated}">
+                                    <div class="overlay"></div>
+                                </a>
+                                <div class="info"><h1>${translated}</h1>
+                                    <p>${inStock}</p>
+                                </div>
+                            `;
+                            container.appendChild(li);
+                            // Animate in
+                            requestAnimationFrame(() => {
+                              li.style.opacity = '1';
+                              li.style.transform = 'translateY(0)';
+                            });
+                            
+                        });
+                    })
+                    .catch(err => {
+                        console.error("❌ Failed to load or process products.json:", err);
+                    });
+            });
+        });
+    </script>
 </body>
