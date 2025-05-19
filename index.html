@@ -201,7 +201,6 @@ layout: default
         <span class="title" style="color: #e67e22">bản đồ   |  </span>vị trí của tôi
     </div>
     <div class="map" id="map-canvas">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.1152708710915!2d106.85878517463334!3d10.954664455881549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174dc2a78299a93%3A0x3797df49a37b9efc!2zMzggxJAuIMSQ4bq3bmcgxJDhu6ljIFRodeG6rXQsIFRhbSBIb8OgLCBCacOqbiBIw7JhLCDEkOG7k25nIE5haSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1747137530671!5m2!1svi!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="centeredText">
         <span class="title" style="color: #e67e22">
@@ -363,7 +362,7 @@ layout: default
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-            var marker_image = 'style/images/red-pin.png';
+            var marker_image = '.assets/images/red-pin.png';
             var pinIcon = new google.maps.MarkerImage(marker_image, null, null, null, new google.maps.Size(26.5, 40));
 
             var marker = new google.maps.Marker({
