@@ -180,7 +180,7 @@ layout: default
 </head>
 <body>    
     <div class="page-title">
-    <img src=".../assets/images/ptbg1.jpg" alt="title bg" />
+    <img src="/assets/images/ptbg1.jpg" alt="title bg" />
     <h1>Mẫu in áo lớp</h1>
     </div>
     <div class="pageContainer">
@@ -224,7 +224,7 @@ function renderPage(page) {
 
     imagesToShow.forEach(filename => {
         const base = filename.replace("B.jpg", "");          
-        const fullPath = `.../hinh-mau-in-ao/mau-thiet-ke-hoan-thien/${filename}`;
+        const fullPath = `/hinh-mau-in-ao/mau-thiet-ke-hoan-thien/${filename}`;
         const li=document.createElement("li");
         li.className="container";
         li.innerHTML=`<div class="linkedPanel">
@@ -261,7 +261,7 @@ function setupPagination(totalPages) {
     }
 }
 
-fetch(".../hinh-mau-in-ao/hinh-mau-in-ao.json")
+fetch("/hinh-mau-in-ao/hinh-mau-in-ao.json")
     .then(res => res.json())
     .then(data => {
         files = data["mau-thiet-ke-hoan-thien"]; // Only this folder
