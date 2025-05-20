@@ -1,0 +1,260 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mẫu áo trơn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .page-title {
+      height: 120px;
+        vertical-align: middle;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .page-title img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-title h1 {
+        margin-top: -11px;
+        font-size: 22px;
+        position: absolute;
+        top: 50%;
+        color: #515151;
+        font-weight: 300;
+        left: 10%;
+    }
+
+    .categorySelector {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .category a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #616161;
+      font-size: 14px;
+      cursor: pointer;
+      margin:0 15px;
+    }
+
+    .category a.active {
+      color: orange;
+    }
+    .category a i {
+        font-size: 8px;
+        margin-right: 10px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .product {
+      width: 30%;
+      max-width: 300px;
+      position: relative;
+      overflow: hidden;
+      transform: scale(1);
+      opacity: 1;
+      transition: all 0.4s ease;
+    }
+
+    .product.hide {
+      transform: scale(0.001);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(230, 126, 34, 0.92);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .product:hover .overlay {
+      opacity: 1;
+    }
+
+    .info {
+      position: absolute;
+      top: -100px;
+      left: 0px;
+      color: white;
+      opacity: 0;
+      transition: 0.3s;
+      padding:25px;
+    }
+
+    .product:hover .info {
+      opacity: 1;
+      top: 10px;
+    }
+
+    .info h1 {
+      margin: 0;
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .info p {
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    @media(max-width: 768px) {
+        .products{
+            width: 90vw;
+        }
+      .product {
+        width: 100%;
+        max-width: 100%;
+      }
+      .category a i{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-title">
+    <img src="../assets/images/ptbg1.jpg" alt="title bg" />
+    <h1>Mẫu màu trên áo trơn</h1>
+  </div>
+
+  <ul class="categorySelector">
+    <li class="category"><a href="#" class="active" data-category="all"><i class="fa fa-circle-thin"></i>Tất cả</a></li>
+    <li class="category"><a href="#" data-category="ao-thun-tron"><i class="fa fa-circle-thin"></i>Áo cổ tròn</a></li>
+    <li class="category"><a href="#" data-category="ao-thun-tron-co-tim"><i class="fa fa-circle-thin"></i>Áo cổ tim</a></li>
+    <li class="category"><a href="#" data-category="ao-khoac-co-day"><i class="fa fa-circle-thin"></i>Khoác có dây kéo</a></li>
+    <li class="category"><a href="#" data-category="ao-khoac-khong-day-keo"><i class="fa fa-circle-thin"></i>Khoác chui cổ</a></li>
+    <li class="category"><a href="#" data-category="ao-thun-tron-ca-sau"><i class="fa fa-circle-thin"></i>Áo cá sấu</a></li>
+  </ul>
+
+  <ul class="products" id="productContainer"></ul>
+
+  <script>
+    const vietnameseLookup = {
+      'den': 'đen', 'do': 'đỏ', 'dam': 'đậm', 'xanh': 'xanh', 'cam': 'cam', 'tuoi': 'tươi',
+      'trang': 'trắng', 'vang': 'vàng', 'do-tuoi': 'đỏ tươi', 'hong': 'hồng', 'sen': 'sen', 'tim': 'tím',
+      'ket': 'két', 'dom': 'đốm', 'da': 'da', 'nhat': 'nhạt', 've': 've', 'chai':'chai', 'gia': 'già',
+      'thien': 'thiên', 'thanh':'thanh', 'bien': 'biển', 'nau': 'nâu', 'phan': 'phấn', 'reu': 'rêu',
+      'ngoc': 'ngọc', 'neon': 'neon', 'quang':'quang', 'bich': 'bích', 'chuoi': 'chuối',
+      'non': 'non', 'xam': 'xám', 'la': 'lá'
+    };
+    const spliceLookup= {
+            "ao-thun-tron":'4',
+            "ao-thun-tron-co-tim":'6',
+            "ao-khoac-co-day":'5',
+            "ao-khoac-khong-day-keo":'6',
+            "ao-thun-tron-ca-sau":'6'
+    };
+    const inStockState={
+        "ao-thun-tron":"Có sẵn tại cửa hàng",
+        "ao-thun-tron-co-tim":"Liên hệ đặt may",
+        "ao-khoac-co-day":"Liên hệ đặt may",
+        "ao-khoac-khong-day-keo":"Liên hệ đặt may",
+        "ao-thun-tron-ca-sau":"Liên hệ đặt may"            
+    };
+
+    const productContainer = document.getElementById("productContainer");
+    const categoryLinks = document.querySelectorAll(".category a");
+
+    function renderProducts(data, filter = "all") {
+      const items = [];
+
+      const folders = filter === "all" ? data.folders : [filter];
+
+      folders.forEach(folder => {
+        const files = data[folder];
+        if (!files) return;
+            let inStock=(inStockState[folder]);
+
+        files.forEach(filename => {
+            const base = filename.replace(".jpg", "");
+            const parts = base.split("-");          
+            const sliceIndex = parseInt(spliceLookup[folder] || 4); // fallback to 4 
+            const colors = parts.slice(sliceIndex).map(p => vietnameseLookup[p] || p).join(" ");
+            const imgPath = `../products/${folder}/${filename}`;
+
+            const li = document.createElement("li");
+            li.className = "product hide"; // start hidden
+            li.innerHTML = `
+                <a href="#"><img src="${imgPath}" alt="${colors}">
+                <div class="overlay"></div>
+                </a>
+                <div class="info">
+                <h1>${colors}</h1>
+                <p>${inStock}</p>
+                </div>
+          `;
+          items.push(li);
+        });
+      });
+
+      // Animate out old items
+      const oldItems = productContainer.querySelectorAll(".product");
+      oldItems.forEach(item => item.classList.add("hide"));
+
+      // Wait for hide animation then replace
+      setTimeout(() => {
+        productContainer.innerHTML = "";
+        items.forEach(item => {
+          productContainer.appendChild(item);
+          requestAnimationFrame(() => item.classList.remove("hide"));
+        });
+      }, 400);
+    }
+
+    fetch("../products/products.json")
+      .then(res => res.json())
+      .then(data => {
+        renderProducts(data); // show all initially
+
+        categoryLinks.forEach(link => {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            categoryLinks.forEach(l => l.classList.remove("active"));
+            link.classList.add("active");
+
+            const folder = link.dataset.category;
+            renderProducts(data, folder);
+          });
+        });
+      })
+      .catch(err => console.error("Failed to load product data", err));
+  </script>
+</body>
+</html>
