@@ -150,7 +150,7 @@ layout: default
 </head>
 <body>
   <div class="page-title">
-    <img src="../assets/images/ptbg1.jpg" alt="title bg" />
+    <img src="./assets/images/ptbg1.jpg" alt="title bg" />
     <h1>Mẫu màu trên áo trơn</h1>
   </div>
 
@@ -207,7 +207,7 @@ layout: default
             const parts = base.split("-");          
             const sliceIndex = parseInt(spliceLookup[folder] || 4); // fallback to 4 
             const colors = parts.slice(sliceIndex).map(p => vietnameseLookup[p] || p).join(" ");
-            const imgPath = `../products/${folder}/${filename}`;
+            const imgPath = `./products/${folder}/${filename}`;
 
             const li = document.createElement("li");
             li.className = "product hide"; // start hidden
@@ -238,7 +238,7 @@ layout: default
       }, 400);
     }
 
-    fetch("../products/products.json")
+    fetch("./products/products.json")
       .then(res => res.json())
       .then(data => {
         renderProducts(data); // show all initially
