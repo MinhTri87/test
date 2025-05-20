@@ -203,6 +203,7 @@ const pagination = document.querySelector(".pagination");
 const IMAGES_PER_PAGE = 24;
 let currentPage = 1;
 let files = [];
+  let folder="mau-thiet-ke-hoan-thien";
 
 function renderPage(page) {
     gallery.innerHTML = ""; // Clear old images
@@ -212,7 +213,7 @@ function renderPage(page) {
 
     imagesToShow.forEach(filename => {
         const base = filename.replace("B.jpg", "");          
-        const fullPath = `./hinh-mau-in-ao/mau-thiet-ke-hoan-thien/${filename}`;
+        const fullPath = `./hinh-mau-in-ao/${folder}/${filename}`;
         const li=document.createElement("li");
         li.className="container";
         li.innerHTML=`<div class="linkedPanel">
@@ -252,7 +253,7 @@ function setupPagination(totalPages) {
 fetch("./hinh-mau-in-ao/hinh-mau-in-ao.json")
     .then(res => res.json())
     .then(data => {
-        files = data["mau-thiet-ke-hoan-thien"]; // Only this folder
+        files = data[folder]; // Only this folder
         const totalPages = Math.ceil(files.length / IMAGES_PER_PAGE);
         renderPage(currentPage);
         setupPagination(totalPages);
