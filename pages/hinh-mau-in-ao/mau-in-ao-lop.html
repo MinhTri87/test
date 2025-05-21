@@ -215,7 +215,7 @@ function renderPage(page) {
     imagesToShow.forEach(filename => {
         let base = filename.replace("-min.jpg", "");  
         base=base.slice(2,base.length);        
-        const fullPath = `/hinh-mau-in-ao/${folder}/${filename}`;
+        const fullPath = `{{site.baseurl}}/hinh-mau-in-ao/${folder}/${filename}`;
         const li=document.createElement("li");
         index++;
         li.className="container";
@@ -253,7 +253,7 @@ function setupPagination(totalPages) {
     }
 }
 
-fetch("/hinh-mau-in-ao/hinh-mau-in-ao.json")
+fetch("{{sit.baseurl}}/hinh-mau-in-ao/hinh-mau-in-ao.json")
     .then(res => res.json())
     .then(data => {
         files = data[folder]; // Only this folder
