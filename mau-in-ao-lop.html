@@ -130,13 +130,14 @@ layout: default
       font-size: 12px;
       font-weight: 300;
     }
+    .container{
+        margin: 30px 0;
+    }
     .linkedPanel {
     position: relative;
     overflow: hidden;
     }
     .linkedPanel a{
-        overflow: hidden;
-        aspect-ratio: 4/3;
     }
     .fancybox-media img{
         height: 100%;
@@ -219,7 +220,8 @@ function renderPage(page) {
     const imagesToShow = files.slice(start, end);
     let index=(currentPage-1)*IMAGES_PER_PAGE;
     imagesToShow.forEach(filename => {
-        const base = filename.replace("B.jpg", "");          
+        let base = filename.replace("-min.jpg", "");  
+        base=base.slice(2,base.length);        
         const fullPath = `./hinh-mau-in-ao/${folder}/${filename}`;
         const li=document.createElement("li");
         index++;
@@ -232,7 +234,7 @@ function renderPage(page) {
                 <div class="icon"><i class="fa fa-search"></i></div>
             </div>
             <div class="info">
-                <h3>mẫu ${index}</h3>
+                <h3>mẫu ${base}</h3>
             </div>`;
         gallery.appendChild(li);
         /*const a = document.createElement("a");
