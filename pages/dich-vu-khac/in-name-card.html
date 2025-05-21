@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: posts
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +14,22 @@ layout: default
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    <link href="style/social-kit/assets/dist/css/social-share-kit.css" rel="stylesheet" type="text/css"/>
+    <link href="/style/social-share-kit-1.0.14/dist/css/social-share-kit.css" rel="stylesheet" type="text/css"/>
     <!--global styling-->
     <!--<link rel="stylesheet" href="../style/products-style.css">-->
-    <style>    
+    <style>
+        body{
+            margin:0;
+        }    
+        .postContainer{
+            display:flex;
+        }
     </style>
 </head>
 <body>
-    <div class="ssk-sticky ssk-left ssk-center ssk-lg">
-    <a href="" class="ssk ssk-facebook"></a>
-    <a href="" class="ssk ssk-twitter"></a>
-    <a href="" class="ssk ssk-google-plus"></a>
-    <a href="" class="ssk ssk-email"></a>
-</div>
+    <div class="postContainer">        
+    </div>
+    <script>
+        const container=document.querySelector("postContainer");
+    </script>
 </body>
