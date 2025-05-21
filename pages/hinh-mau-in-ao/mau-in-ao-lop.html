@@ -253,7 +253,7 @@ function setupPagination(totalPages) {
     }
 }
 
-fetch("{{sit.baseurl}}/hinh-mau-in-ao/hinh-mau-in-ao.json")
+fetch("{{site.baseurl}}/hinh-mau-in-ao/hinh-mau-in-ao.json")
     .then(res => res.json())
     .then(data => {
         files = data[folder]; // Only this folder
