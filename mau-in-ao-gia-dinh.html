@@ -209,8 +209,8 @@ function renderPage(page) {
     gallery.innerHTML = ""; // Clear old images
     const start = (page - 1) * IMAGES_PER_PAGE;
     const end = start + IMAGES_PER_PAGE;
-    const imagesToShow = files.slice(start, end);
-    let index=0;
+    const imagesToShow = files.slice(start, end);    
+    let index=(currentPage-1)*IMAGES_PER_PAGE;
     imagesToShow.forEach(filename => {
         const base = filename.replace("B.jpg", "");          
         const fullPath = `./hinh-mau-in-ao/${folder}/${filename}`;
