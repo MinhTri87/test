@@ -1,5 +1,5 @@
 ---
-layout: default
+layout:default
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -134,6 +134,13 @@ layout: default
     position: relative;
     overflow: hidden;
     }
+    .linkedPanel a{
+        overflow: hidden;
+        aspect-ratio: 4/3;
+    }
+    .fancybox-media img{
+        height: 100%;
+    }
 
     .linkedPanel .overlay {
         position: absolute;
@@ -181,16 +188,9 @@ layout: default
 <body>    
     <div class="page-title">
     <img src="./assets/images/ptbg1.jpg" alt="title bg" />
-    <h1>Mẫu in áo lớp</h1>
+    <h1>Mẫu in áo gia đình</h1>
     </div>
-    <div class="pageContainer">
-        <p class="pageDescription">
-        <b>Một số lưu ý:</b><br>
-        <span class="fa fa-star"></span> Mẫu thiết kế chỉ mô tả màu sắc vải &amp; hình in bố trí trên đồng phục.
-        <span class="fa fa-star"></span> Kích thước hình in chỉ mang tính chất tham khảo.
-        <span class="fa fa-star"></span> Màu sắc trên vải và hình in chỉ mang tính chất tham khảo.
-        <span class="fa fa-star"></span> Xem màu và mẫu vải, ghi chú quan trọng trực tiếp tại shop là điều rất quan trọng.                        
-        </p>
+    <div class="pageContainer">        
         <div class="gallery" id="gallery"></div>
         <ul class="pagination"></ul>
     </div>
@@ -203,18 +203,19 @@ const pagination = document.querySelector(".pagination");
 const IMAGES_PER_PAGE = 24;
 let currentPage = 1;
 let files = [];
-let folder="mau-in-ao-gia-dinh";
+  let folder="mau-in-ao-gia-dinh";
 
 function renderPage(page) {
     gallery.innerHTML = ""; // Clear old images
     const start = (page - 1) * IMAGES_PER_PAGE;
     const end = start + IMAGES_PER_PAGE;
     const imagesToShow = files.slice(start, end);
-
+    let index=0;
     imagesToShow.forEach(filename => {
         const base = filename.replace("B.jpg", "");          
         const fullPath = `./hinh-mau-in-ao/${folder}/${filename}`;
         const li=document.createElement("li");
+        index++;
         li.className="container";
         li.innerHTML=`<div class="linkedPanel">
                 <a class="fancybox-media" href="${fullPath}" data-fancybox="gallery">
@@ -224,7 +225,7 @@ function renderPage(page) {
                 <div class="icon"><i class="fa fa-search"></i></div>
             </div>
             <div class="info">
-                <h3>mẫu ${base}</h3>
+                <h3>mẫu ${index}</h3>
             </div>`;
         gallery.appendChild(li);
         /*const a = document.createElement("a");
