@@ -1,0 +1,223 @@
+---
+layout: posts
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!--global styling-->
+    <link rel="stylesheet" href="{{site.baseurl}}/style/posts.css?v={{ site.time | date: '%s' }}">
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;            
+            margin:0px; 
+            line-height: 25px;                              
+        }
+        .innerInfo{
+            width:770px;
+            margin-inline:auto;
+            padding-bottom: 70px;
+        }
+        .innerInfo h2{
+            font-size: 22px;
+            line-height: 24px;
+            margin-bottom: 15px;
+            color:#616161;
+            font-weight: 700;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        h3,.section-title{
+            color:#e67e22;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        h3{
+            color:#616161;
+            margin-bottom: 10px;
+        }
+        .discountTable li,
+        .priceTable li{
+            background: white;
+            padding: 15px 0;
+            line-height: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            border-right: 1px solid #dedede;
+            border-left: 1px solid #dedede;
+        }
+        .discountTable li:nth-child(odd),
+        .priceTable li:nth-child(odd){
+            background: #f5f5f5;            
+        }
+        .priceTable li:nth-child(odd){
+            font-size: 45px;
+            color:#e67e22;
+            font-weight: 700;
+        }
+        .discountTable li:first-child,
+        .priceTable li:first-child{
+            background:aquamarine;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 45px;
+            padding: 5px 0;
+            color:#5c5c5c;
+            font-weight: 700;
+        }
+        .qna,
+        .discountTable,
+        .priceTable{            
+            padding:0;
+            margin-inline:auto;
+            margin: 0;
+            list-style-type: none;
+        }
+        .qna li{
+            margin-bottom: 10px;
+        }
+        .brief,
+        .detail{
+            background: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            font-size: 14px;
+            padding: 10px;
+            text-align: justify;
+            font-weight: 500;
+        }
+        .brief{
+            padding: 13px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color:#616161;
+            cursor: pointer;
+        }
+        .brief:hover{
+            color:#e67e22;
+        }
+        .detail{
+            max-height: 0px;
+            display: none;
+            padding: 15px;
+            transition:max-height 1000ms linear;
+            border-top:none;
+        }
+        .detail.show{
+            max-height: 500px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <div class="page-title"></div>
+        <h1>Câu hỏi thường gặp</h1>
+    </div> 
+    <div class="pageContainer">
+        <div class="row">
+            <div class="col">
+                <h3 class="section-title">Câu hỏi thường gặp</h3>
+                <ul class="qna">
+                    <li>
+                        <div class="brief">1. Tôi muốn làm đồng phục nhưng chưa có mẫu thì phải làm sao?</div>
+                        <div class="detail">Bạn có thể tham khảo catalogue mẫu in trên website aothunxuxu.com, hoặc bạn có thể đưa ý tưởng, đội ngũ thiết kế của chúng tôi sẽ thiết kế theo yêu cầu của bạn.</div>
+                    <li>
+                        <div class="brief">2. Nếu có mẫu rồi thì như thế nào?</div>
+                        <div class="detail">Nếu bạn đã có mẫu, chúng tôi sẽ kiểm tra mẫu của bạn có phù hợp về kỹ thuật in không, nếu phù hợp thì sẽ làm theo yêu cầu của bạn, nếu chưa phù hợp thì mẫu đó cần phải điều chỉnh lại cho phù hợp.</div>
+                    <li>
+                        <div class="brief">3. Mẫu vẽ tay có được không?</div>
+                        <div class="detail">Hoàn toàn được. Đội ngũ thiết kế của chúng tôi sẽ vẽ lại mẫu đó trên máy tính và hoàn thiện mẫu cho bạn.</div>
+                    <li>
+                        <div class="brief">4. Mẫu vẽ trên máy tính thì như thế nào?</div>
+                        <div class="detail">Nếu bạn đã có mẫu, chúng tôi sẽ kiểm tra mẫu của bạn có phù hợp về kỹ thuật in không, nếu phù hợp thì sẽ làm theo yêu cầu của bạn, nếu chưa phù hợp thì mẫu đó cần phải điều chỉnh lại cho phù hợp.</div>
+                    <li>
+                        <div class="brief">5. Giá cả khi làm áo?</div>
+                        <div class="detail">Có nhiều khung giá khác nhau cho từng khung số lượng bạn đặt khác nhau. Bạn có thể biết chính xác giá đồng phục của mình khi liên hệ trực tiếp cho shop qua số điện thoại: 0126.7710.030 (gặp Phương).</div>
+                    <li>
+                        <div class="brief">6. Bảng giá này là giá toàn bộ của 1 áo?</div>
+                        <div class="detail">Đã là giá thành phẩm cuối cùng bao gồm thiết kế, công in, áo & đóng gói.</div>
+                    <li>
+                        <div class="brief">7. Có tất cả bao nhiêu size áo?</div>
+                        <div class="detail">Size áo từ: XS, S, M, L, XL, 2XL đến 5XL.</div>
+                    <li>
+                        <div class="brief">8. Có được mượn áo về thử size không?</div>
+                        <div class="detail">Hoàn toàn được. Nếu bạn bạn đã đặt hàng bạn không cần phải đặt cọc phí mượn áo. Nếu chưa đặt hàng, bạn cần đặt cọc 500.000/bộ(6 áo). Phí cọc này sẽ trả lại cho bạn khi bạn hoàn trả bộ áo mẫu cho shop.</div>
+                    <li>
+                        <div class="brief">9. Muốn có mẫu thiết kế thì phải làm gì trước tiên?</div>
+                        <div class="detail">Đầu tiên bạn cần đặt cọc phí thiết kế. Số tiền này sẽ hoàn lại nếu bạn đồng ý đặt áo tại shop. Tiếp theo bạn gửi cho chúng tôi yêu cầu thiết kế của bạn.</div>
+                    <li>
+                        <div class="brief">10. Thời gian nhận được mẫu thiết kế là mấy ngày?</div>
+                        <div class="detail">1-5 ngày (tùy vào độ khó của hình) kể từ ngày bạn cung cấp đầy đủ yêu cầu thiết kế cho shop.</div>
+                    <li>
+                        <div class="brief">11. Nếu muốn chỉnh sửa lại mẫu thì sao?</div>
+                        <div class="detail">Liên hệ với shop để được chỉnh sửa lại.</div>
+                    <li>
+                        <div class="brief">12. Được chỉnh sửa mẫu mấy lần?</div>
+                        <div class="detail">Tối đa là 03 lần.</div>
+                    <li>
+                        <div class="brief">13. Nếu sau 3 lần mà ko đồng ý mẫu đó thì sao?</div>
+                        <div class="detail">Nếu sau 3 lần mà bạn vẫn chưa đồng ý mẫu thiết kế thì bạn sẽ phải tự hoàn thiện lấy mẫu của mình hoặc chọn một trong những mẫu mà có sẵn trên website của shop.</div>
+                    <li>
+                        <div class="brief">14. Nếu tôi không đồng ý mẫu và cũng không muốn làm áo nữa thì có được lấy lại tiền đặt cọc thiết kế không?</div>
+                        <div class="detail">Nếu bạn không đặt áo nữa thì bạn sẽ bị mất số tiền đã đặt cọc thiết kế.</div>
+                    <li>
+                        <div class="brief">15. Thời gian làm áo là bao nhiêu ngày?</div>
+                        <div class="detail">Khoảng 10-15 ngày (trừ ngày chủ nhật) kể từ khi bạn: duyệt mẫu thiết kế, báo size, đã chọn được vải và tạm ứng ít nhất là 50% tổng giá trị phí làm áo. Ngoài ra, chúng tôi còn cung cấp <strong>DỊCH VỤ SẢN XUẤT ÁO NHANH TRONG 72H</strong> để đáp ứng nhu cầu cần áo gấp cho bạn.</div>
+                    <li>
+                        <div class="brief">16. Nếu đã duyệt mẫu rồi mà muốn chỉnh sửa nữa thì có được không?</div>
+                        <div class="detail">Hoàn toàn không. Vì khi đó bộ phận sản xuất của shop đã tiếp nhận yêu cầu và đang tiến hành sản xuất hàng loạt.</div>
+                    <li>
+                        <div class="brief">17. Nếu sau khi nhận đồng phục mà bị lỗi thì cửa hàng sẽ giải quyết như thế nào?</div>
+                        <div class="detail">Trong vòng 7 ngày, nếu sản phẩm bị lỗi, cửa hàng sẽ gấp rút sản xuất lại đồng phục theo đúng chất lượng ban đầu đã thỏa thuận trong thời gian nhanh nhất mà bạn không phải chịu thêm bất kỳ chi phí nào.</div>
+                    <li>
+                        <div class="brief">18. Nếu sau khi làm áo mà có nhu cầu làm thêm với mẫu đó thì tính giá thế nào?</div>
+                        <div class="detail">Nếu bạn có nhu cần đặt thêm một vài áo nữa theo mẫu bạn đã duyệt mà không có chỉnh sửa gì nữa thì shop sẽ áp dụng bảng giá mới dựa trên số lượng áo cần đặt thêm.</div>
+                    <li>
+                        <div class="brief">19. Có thể làm một áo mẫu trước để xem được không?</div>
+                        <div class="detail">Có thể được nếu bạn làm với số lượng lớn và đã đặt cọc ít nhất 50 % tổng giá trị của số lượng áo bạn đặt.</div>
+                    <li>
+                        <div class="brief">20. Hình in và màu in thực tế trên áo có chính xác như trên vi tính hay không?</div>
+                        <div class="detail">Hình in và màu in thực tế trên áo sẽ có độ lệch so với mẫu trên máy. Độ lệch này không lớn và nằm trong giới hạn cho phép.</div>
+                </ul>
+            </div>
+            <div class="sideWidget">
+                <div class="posts">HỖ TRỢ</div>
+                <ul class="postCategory">
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/thiet-ke-san-pham.html">Thiết kế áo thun</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/quy-trinh-dat-ao-dong-phuc.html">Quy trình đặt áo đồng phục</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/bang-gia-dong-phuc.html">Bảng giá</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/bang-mau-ao-thun-tron.html">Bảng màu</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/size-ao-dong-phuc.html">Size áo</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/mot-so-luu-y.html">Một số lưu ý</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/huong-dan-bao-quan.html">Hướng dẫn bảo quản</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/slogan-tieng-viet.html">Slogan tiếng Việt</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/slogan-tieng-anh.html">Slogan tiếng Anh</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+    const briefs = document.querySelectorAll(".brief");
+    const details = document.querySelectorAll(".detail");
+
+    briefs.forEach((brief, i) => {
+        brief.addEventListener("click", () => {
+            const detail = details[i];
+            detail.classList.toggle("show");
+        });
+    });
+</script>
+
+</body>

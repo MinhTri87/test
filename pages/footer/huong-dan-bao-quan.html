@@ -1,0 +1,187 @@
+---
+layout: posts
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!--global styling-->
+    <link rel="stylesheet" href="{{site.baseurl}}/style/posts.css?v={{ site.time | date: '%s' }}">
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;            
+            margin:0px; 
+            line-height: 25px;                              
+        }
+        .innerInfo{
+            width:770px;
+            margin-inline:auto;
+            padding-bottom: 70px;
+        }
+        .innerInfo h2{
+            font-size: 22px;
+            line-height: 24px;
+            margin-bottom: 15px;
+            color:#616161;
+            font-weight: 700;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        h3,.section-title{
+            color:#e67e22;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        h3{
+            color:#616161;
+            margin-bottom: 10px;
+        }
+        .discountTable li,
+        .priceTable li{
+            background: white;
+            padding: 15px 0;
+            line-height: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            border-right: 1px solid #dedede;
+            border-left: 1px solid #dedede;
+        }
+        .discountTable li:nth-child(odd),
+        .priceTable li:nth-child(odd){
+            background: #f5f5f5;            
+        }
+        .priceTable li:nth-child(odd){
+            font-size: 45px;
+            color:#e67e22;
+            font-weight: 700;
+        }
+        .discountTable li:first-child,
+        .priceTable li:first-child{
+            background:aquamarine;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 45px;
+            padding: 5px 0;
+            color:#5c5c5c;
+            font-weight: 700;
+        }
+        .qna,
+        .discountTable,
+        .priceTable{            
+            padding:0;
+            margin-inline:auto;
+            margin: 0;
+            list-style-type: none;
+        }
+        .qna li{
+            margin-bottom: 10px;
+        }
+        .brief,
+        .detail{
+            background: #f5f5f5;
+            border: 1px solid #e3e3e3;
+            font-size: 14px;
+            padding: 10px;
+            text-align: justify;
+            font-weight: 500;
+        }
+        .brief{
+            padding: 13px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color:#616161;
+            cursor: pointer;
+        }
+        .brief:hover{
+            color:#e67e22;
+        }
+        .detail{
+            max-height: 0px;
+            display: none;
+            padding: 15px;
+            transition:max-height 1000ms linear;
+            border-top:none;
+        }
+        .detail.show{
+            max-height: 500px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <div class="page-title"></div>
+        <h1>Hướng dẫn bảo quản</h1>
+    </div> 
+    <div class="pageContainer">
+        <div class="row">
+            <div class="col">
+                <h3 class="section-title">Hướng dẫn bảo quản</h3>
+                <ul class="qna">
+                    <li>
+                        <div class="brief">1. giặt áo bằng tay</div>
+                        <div class="detail">Lộn mặt trái áo, dùng tay vò từ từ. Tránh không đổ trực tiếp nước tẩy lên áo. Giặt sạch, sau đó dùng nước xả làm mềm vải.</div>
+                    </li>
+                    <li>
+                        <div class="brief">2. giặt áo bằng máy giặt</div>
+                        <div class="detail">Chỉnh máy hoạt động ở mức trung bình để tránh làm giãn áo. Ngâm áo trong khoảng thời gian ngắn. Giặt áo bằng máy đễ làm áo bị nhàu.</div>
+                    </li>
+                    <li>
+                        <div class="brief">3. dùng tay vỗ nhẹ vào áo khi phơi</div>
+                        <div class="detail">Sau khi giặt xong, dùng tay vỗ nhẹ vào áo khi phơi. Như vậy áo sẽ mau khô và không bị nhăn.</div>
+                    </li>
+                    <li>
+                        <div class="brief">4. tránh vắt áo</div>
+                        <div class="detail">Tránh vắt mạnh áo, như thế áo sẽ dễ bị nhăn.</div>
+                    </li>
+                    <li>
+                        <div class="brief">5. phơi áo ở nơi có gió</div>
+                        <div class="detail">Nên phơi áo ở nơi có nhiều gió. Nên trải thẳng áo khi phơi. Tránh phơi áo ở nơi có nhiều ánh nắng trực tiếp, nắng gay gắt dễ làm áo bị bạc màu.</div>
+                    </li>
+                    <li>
+                        <div class="brief">6. Tránh phơi áo bằng móc</div>
+                        <div class="detail">Phơi áo bằng móc dễ làm cổ áo, vai áo bị giãn và biến dạng.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sideWidget">
+                <div class="posts">HỖ TRỢ</div>
+                <ul class="postCategory">
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/thiet-ke-san-pham.html">Thiết kế áo thun</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/quy-trinh-dat-ao-dong-phuc.html">Quy trình đặt áo đồng phục</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/bang-gia-dong-phuc.html">Bảng giá</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/bang-mau-ao-thun-tron.html">Bảng màu</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/size-ao-dong-phuc.html">Size áo</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/mot-so-luu-y.html">Một số lưu ý</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/huong-dan-bao-quan.html">Hướng dẫn bảo quản</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/slogan-tieng-viet.html">Slogan tiếng Việt</a></li>
+                    <li class="postCategories"><a href="{{site.baseurl}}/pages/footer/slogan-tieng-anh.html">Slogan tiếng Anh</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+    const briefs = document.querySelectorAll(".brief");
+    const details = document.querySelectorAll(".detail");
+
+    briefs.forEach((brief, i) => {
+        brief.addEventListener("click", () => {
+            const detail = details[i];
+            detail.classList.toggle("show");
+        });
+    });
+</script>
+
+</body>

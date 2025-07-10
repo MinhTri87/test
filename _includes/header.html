@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{site.baseurl}}/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{site.baseurl}}/https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     body {
             font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important;
@@ -16,7 +16,9 @@
         }
 
             .topBar img {
-                padding-left: 100px;
+                margin-left: 100px;
+                width: 147px;
+                height: 28px;
             }
 
         .infoBar {
@@ -27,13 +29,18 @@
             flex: 1;
             justify-content: flex-end;
         }
+        .infoBar *{
+            color: #888888;
+            font-size: 12px;
+            text-decoration: none;
+        }
 
         .mail {
             text-decoration: none;
             color: black;
         }
 
-            .mail:hover {
+            .infoBar a:hover {
                 color: orange;
             }
 
@@ -271,13 +278,13 @@
 </head>
 <body>
   <div class="topBar">
-    <a href="{{site.baseurl}}/{{site.baseurl}}/index.html">
+    <a href="{{site.baseurl}}/index.html">
         <img src="https://aothunxuxu.com/style/images/logo-xuxu.png" alt="Logo">
     </a>
     <ul class="infoBar">
       <li><i class="fa fa-phone"></i> 076 771 0030</li>
-      <li><i class="email"></i><a href="{{site.baseurl}}/mailto:dongphucxuxu@gmail.com" class="mail">dongphucxuxu.com</a></li>
-      <li class="signIn"><i class="fa fa-sign-in"></i>CTV đăng nhập</li>
+      <li><i class="material-icons">email</i><a href="{{site.baseurl}}/mailto:dongphucxuxu@gmail.com" class="mail"> dongphucxuxu.com</a></li>
+      <li class="signIn"><i class="fa fa-sign-in"></i><a href="{{site.baseurl}}/pages/log-in.html"> CTV đăng nhập</a></li>
     </ul>
   </div>
   <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
@@ -297,21 +304,21 @@
       </li>
           <li><a href="#">DỊCH VỤ KHÁC</a></a>
 	  <ul class="dropDown">
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-name-card.html">in name card</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/may-in-tap-de.html">may in tạp dề</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-theu-non.html">in thêu nón</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-quang-cao.html">in quảng cáo</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-tranh-ghep.html">in tranh ghép</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-ly.html">in ly</a></li>
-      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in-lot-chuot.html">in lót chuột</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in name card.html">in name card</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/may in tạp dề.html">may in tạp dề</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in thêu nón.html">in thêu nón</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in quảng cáo.html">in quảng cáo</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in tranh ghép.html">in tranh ghép</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in ly.html">in ly</a></li>
+      <li><a href="{{site.baseurl}}/pages/dich-vu-khac/in lót chuột.html">in lót chuột</a></li>
       </ul>
 	  </li>
         <li><a href="#">VẬT TƯ NGÀNH IN</a></a>
 	  <ul class="dropDown">
-      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vat-tu-in-lua.html">vật tư in lụa</a></li>
-      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vat-tu-in-nhua.html">vật tư in nhựa</a></li>
-      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vat-tu-in-ky-thuat-so.html">vật tư in kỹ thuật số</a></li>
-      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/san-pham-cu-gia-tot.html">sản phẩm cũ giá tố</a></li>
+      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vật tư in lụa.html">vật tư in lụa</a></li>
+      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vật tư in nhựa.html">vật tư in nhựa</a></li>
+      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/vật tư in kỹ thuật số.html">vật tư in kỹ thuật số</a></li>
+      <li><a href="{{site.baseurl}}/pages/vat-tu-nganh-in/sản phẩm cũ giá tốt.html">sản phẩm cũ giá tố</a></li>
       </ul>
 	  </li>
       <li><a href="#">BLOG</a>

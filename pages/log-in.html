@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+  <h1>Welcome to my Supabase App</h1>
+
+  <!-- Form for user authentication -->
+  <div id="login-form">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    // Supabase client setup
+    import { createClient } from '@supabase/supabase-js'
+    const supabaseUrl = 'https://curtpsmoagjqlgtxqmry.supabase.co'; // Your Supabase URL
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDAxOTk0MiwiZXhwIjoyMDU5NTk1OTQyfQ.rYC-dXYYv_jwHavwuYWJk3rKaq75rw3gvh51BeyHLVU'; // Your Supabase Anon key
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    async function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert('❌ Login failed: ' + error.message);
+  } else {
+    alert('✅ Welcome ' + data.user.email);
+    // Redirect or show dashboard here
+  }
+}
+.catch(err => console.error("❌ Failed to load gallery JSON:", err));
+
+  </script>
+</body>
+</html>

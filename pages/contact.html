@@ -15,125 +15,61 @@ layout: default
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
     <!--global styling-->
-    <!--<link rel="stylesheet" href="../style/products-style.css">-->
+    <link rel="stylesheet" href="{{site.baseurl}}/style/posts.css?v={{ site.time | date: '%s' }}">
     <style>
         body{
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;            
             margin:0px;
         }
-        .pageContainer{
-            padding:70px 15px;
-        }
-        .row{          
-            width: 100%;  
-            max-width: 970px;
-            margin-inline:auto;
-            border: none;
-            position: relative;
-            display: flex;
-        }
-        .row h1{
-            margin: 0 0 10px;
-            font-size: 22px;
-            line-height: 24px;
-            color:#616161;
-            text-transform: uppercase;
-        }
-        .map {
-            margin-top:20;
-            width: 95vw;
-            max-width: 970px;
-            margin-inline:auto;
-            height: 450px;
-            border: none;
-            position: relative;
-        }
-
-        .map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .divide20{
-            height: 20px;
-        }
-        .row address{
-            font-style: normal;
-            text-wrap: wrap;
-            font-size: 14px;
-            padding-left:25px;
-            width: 400px;
-            max-width: 33.33%;
-            margin-bottom: 30px;
-        }
-        .row address strong{
-            font-weight: bold;
-        }
-        .row address a{
-            text-decoration: none;
-            color:#888888;
-        }
-        .col{
-            width:66.66%;
-            position: relative;
-        }
-        .col img{
-            width: 100%;
-        }
-        @media(max-width:768px){
-            .row{
-                flex-direction: column;
-            }
-            .col{
-                margin-bottom: 30px;
-            }
-        }
+        
     </style>
 </head>
 <body>
     <div class="pageContainer">
-    <div class="row">
-        <div class="col">
-            <h1>BẢN ĐỒ VỊ TRÍ CƠ SỞ CHÍNH</h1>
-            <!--map-->
-            <div class="map" id="map-canvas"></div>
+        <div class="row">
+            <div class="col">
+                <h1>BẢN ĐỒ VỊ TRÍ CƠ SỞ CHÍNH</h1>
+                <!--map-->
+                <div class="map" id="map-canvas"></div>
+            </div>
         </div>
-    </div>
-    <div class="divide20"></div>
-    <div class="row" style="display: flex;">
-        <div class="col">
-        <h1>cơ sở chính</h1>
-        <img src="https://aothunxuxu.com/style/images/shop%20ao%20thun%20xuxu-2-min.jpg">
+        <div class="divide20"></div>
+        <div class="row" style="display: flex;">
+            <div class="col">
+            <h1>cơ sở chính</h1>
+            <img src="https://aothunxuxu.com/style/images/shop%20ao%20thun%20xuxu-2-min.jpg">
+            </div>
+            <div class="divide20" style="display: none;"></div>
+            <div class="sideWidget">
+                <address>
+                    <strong>CÔNG TY TNHH MTV TRƯƠNG BẢO PHÁT</strong><br>
+                    <strong>ÁO THUN XUXU</strong><br>
+                    <strong>MÃ SỐ THUẾ:</strong> 3603216861 <br>
+                    38/16 (20/9B số cũ), đường Đặng Đức Thuật, khu phố 6, phường Tam Hiệp, thành phố Biên Hòa, tỉnh Đồng Nai <br>
+                    <abbr>Điện thoại:</abbr> 076 771 0030 <br>
+                    <abbr>Email:</abbr> <a href="mailto:dongphucxuxu@gmail.com">dongphucxuxu@gmail.com</a><br>
+                    <div class="divide20"></div>
+                    <strong>Tài khoản ngân hàng</strong><br>
+                    <abbr>Chủ tài khoản:</abbr> NGUYEN THI THU PHUONG <br>
+                    <abbr>Vietcombank:</abbr> 0481000621266 <br>
+                    <abbr>Chi nhánh:</abbr> BIÊN HÒA - ĐỒNG NAI
+                </address>
+            </div>
         </div>
-        <div class="divide20" style="display: none;"></div>
-        <address>
-            <strong>CÔNG TY TNHH MTV TRƯƠNG BẢO PHÁT</strong><br>
-            <strong>ÁO THUN XUXU</strong><br>
-            <strong>MÃ SỐ THUẾ:</strong> 3603216861 <br>
-            38/16 (20/9B số cũ), đường Đặng Đức Thuật, khu phố 6, phường Tam Hiệp, thành phố Biên Hòa, tỉnh Đồng Nai <br>
-            <abbr>Điện thoại:</abbr> 076 771 0030 <br>
-            <abbr>Email:</abbr> <a href="mailto:dongphucxuxu@gmail.com">dongphucxuxu@gmail.com</a><br>
-            <div class="divide20"></div>
-            <strong>Tài khoản ngân hàng</strong><br>
-            <abbr>Chủ tài khoản:</abbr> NGUYEN THI THU PHUONG <br>
-            <abbr>Vietcombank:</abbr> 0481000621266 <br>
-            <abbr>Chi nhánh:</abbr> BIÊN HÒA - ĐỒNG NAI
-        </address>
-    </div>
-    <div class="divide20"></div>
-    <div class="row">
-        <div class="col">
-            <h1>Chi nhánh bình định</h1>
-            <img src="https://aothunxuxu.com/style/images/shop%20ao%20thun%20xuxu-binh-dinh-min.jpg">
+        <div class="divide20"></div>
+        <div class="row">
+            <div class="col">
+                <h1>Chi nhánh bình định</h1>
+                <img src="https://aothunxuxu.com/style/images/shop%20ao%20thun%20xuxu-binh-dinh-min.jpg">
+            </div>
+            <address>
+                <strong>ÁO THUN XUXU BÌNH ĐỊNH</strong><br>
+                Địa chỉ: "NHÀ MAY TỊNH YÊN": Cù Lâm, Nhơn Lộc, TX An Nhơn, tỉnh Bình Định <br>
+                <abbr>Điện thoại:</abbr> (0932) 26 88 12 (Hoài Mỹ)<br>
+                <abbr>Hotline:</abbr> 076 771 0030 <br>
+                <div class="divide20"></div>
+            </address>
         </div>
-        <address>
-            <strong>ÁO THUN XUXU BÌNH ĐỊNH</strong><br>
-            Địa chỉ: "NHÀ MAY TỊNH YÊN": Cù Lâm, Nhơn Lộc, TX An Nhơn, tỉnh Bình Định <br>
-            <abbr>Điện thoại:</abbr> (0932) 26 88 12 (Hoài Mỹ)<br>
-            <abbr>Hotline:</abbr> 076 771 0030 <br>
-            <div class="divide20"></div>
-        </address>
-    </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsxbk5SmqfYjpVoJO5RJlFYv8G0cgMQzY"></script>
     <script>

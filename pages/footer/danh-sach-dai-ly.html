@@ -1,0 +1,122 @@
+---
+layout: posts
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!--global styling-->
+    <link rel="stylesheet" href="{{site.baseurl}}/style/posts.css?v={{ site.time | date: '%s' }}">
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;            
+            margin:0px;
+        }
+        .innerInfo{
+            width:770px;
+            margin-inline:auto;
+            padding-bottom: 70px;
+        }
+        .innerInfo h2{
+            text-align: center;
+        }
+        .innerInfo p,
+        .innerInfo icon{
+            font-size:14px;
+        }
+        .innerInfo h3{
+            color:#e67e22;
+        }
+        .innerInfo h3,
+        .innerInfo h4{
+            font-size: 16px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        ul{
+            list-style-type: circle;
+            padding-inline-start: 15px;
+        }
+        li::marker{
+            color:#e67e22;
+        }
+        .map{
+            width: 100%;
+        }
+        a{
+            color:#e67e22;
+            text-decoration: none;
+        }
+        a:hover{
+            color:black;
+        }
+        @media(min-width:1200px){
+            .title{
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="title">
+            <h3>Công ty TNHH MTV Trương Bảo Phát  |  <span style="font-weight: normal;">thương hiệu áo thun xuxu</span></h3>            
+            <p>Công ty TNHH MTV Trương Bảo Phát thành lập 15/10/2014, với thương hiệu áo thun xuxu (khởi đầu từ năm 2010 và chính thức đi vào hoạt động từ năm 2012). Chúng tôi mong muốn cung cấp các sản phẩm về áo thun, may, thêu và in đồng phục chất lượng cao đến người tiêu dùng.</p>
+        </div>
+    </div>   
+    <div class="innerInfo">
+        <h3>CƠ SỞ CHÍNH</h3>
+        <h4>TAM HIỆP - BIÊN HOÀ - ĐỒNG NAI</h4>
+        <div class="map" id="map-canvas"></div>
+        <p><icon class="fa fa-map-marker"></icon> 38/16 đường Đặng Đức Thuật, KP.6, P. Tam Hiệp, TP. Biên Hòa - Đồng Nai</p>
+        <p><icon class="fa fa-phone"></icon>  076 771 0030</p>
+        <p><icon class="material-icons">person</icon> Mrs.Phương</p>
+        <p><icon class="material-icons">mail</icon> <a href="mailto:dongphucxuxu@gmail.com">dongphucxuxu@gmail.com</a></p>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsxbk5SmqfYjpVoJO5RJlFYv8G0cgMQzY"></script>
+    <script>
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(10.95478, 106.86159);
+            var mapOptions = {
+                zoom: 16,
+                center: myLatlng,
+                scrollwheel: false
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            var marker_image = '.assets/images/red-pin.png';
+            var pinIcon = new google.maps.MarkerImage(marker_image, null, null, null, new google.maps.Size(26.5, 40));
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                icon: pinIcon,
+                title: 'ÁO THUN XUXU!'
+            });
+
+            // Initialise the inforWindow
+            var infoWindow = new google.maps.InfoWindow({
+                content: infoWindowContent,
+                position: new google.maps.LatLng(10.95558, 106.86159)
+            });
+
+            infoWindow.open(map);
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</body>

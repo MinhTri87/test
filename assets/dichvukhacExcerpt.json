@@ -1,0 +1,47 @@
+{
+  "excerpt-folders": [
+    "in-name-card",
+    "in-lot-chuot",
+    "in-ly",
+    "in-quang-cao",
+    "in-theu-non",
+    "in-tranh-ghep",
+    "may-in-tap-de"
+  ],
+  "in-name-card": [
+    "cac-mau-name-card-phan-2.jpg",
+    "cac-mau-name-card-phan-3-min.jpg",
+    "cac-mau-name-card-phan-4-min.jpg",
+    "cac-mau-name-card-phan-5-min.jpg",
+    "cac-mau-name-card-phan-6.jpg",
+    "cac-mau-name-card-phan-7.jpg",
+    "cac-mau-name-card-phan-8.jpg",
+    "cac-mau-name-card.jpg",
+    "in-name-card.jpg"
+  ],
+  "in-lot-chuot": [
+    "in-lot-chuot-min.jpg"
+  ],
+  "in-ly": [
+    "in-ly-min.jpg"
+  ],
+  "in-quang-cao": [
+    "in-poster-quang-cao.jpg",
+    "in-pp-quang-cao.jpg",
+    "in-tem-decan-trong.jpg",
+    "in-tranh-canvas.jpg",
+    "tranh-treo-tuong-min.jpg"
+  ],
+  "in-theu-non": [
+    "in-non-ket.jpg",
+    "non-ket-nua-dau.jpg"
+  ],
+  "in-tranh-ghep": [
+    "tranh-ghep.jpg"
+  ],
+  "may-in-tap-de": [
+    "cac-kieu-tap-de.jpg",
+    "in-an-tren-tap-de.jpg",
+    "mau-sac-tap-de.jpg"
+  ]
+}

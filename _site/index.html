@@ -12,8 +12,8 @@
 <!DOCTYPE html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     body {
             font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important;
@@ -26,7 +26,9 @@
         }
 
             .topBar img {
-                padding-left: 100px;
+                margin-left: 100px;
+                width: 147px;
+                height: 28px;
             }
 
         .infoBar {
@@ -37,13 +39,18 @@
             flex: 1;
             justify-content: flex-end;
         }
+        .infoBar *{
+            color: #888888;
+            font-size: 12px;
+            text-decoration: none;
+        }
 
         .mail {
             text-decoration: none;
             color: black;
         }
 
-            .mail:hover {
+            .infoBar a:hover {
                 color: orange;
             }
 
@@ -281,13 +288,13 @@
 </head>
 <body>
   <div class="topBar">
-    <a href="//index.html">
+    <a href="/index.html">
         <img src="https://aothunxuxu.com/style/images/logo-xuxu.png" alt="Logo">
     </a>
     <ul class="infoBar">
       <li><i class="fa fa-phone"></i> 076 771 0030</li>
-      <li><i class="email"></i><a href="/mailto:dongphucxuxu@gmail.com" class="mail">dongphucxuxu.com</a></li>
-      <li class="signIn"><i class="fa fa-sign-in"></i>CTV đăng nhập</li>
+      <li><i class="material-icons">email</i><a href="/mailto:dongphucxuxu@gmail.com" class="mail"> dongphucxuxu.com</a></li>
+      <li class="signIn"><i class="fa fa-sign-in"></i><a href="/pages/log-in.html"> CTV đăng nhập</a></li>
     </ul>
   </div>
   <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
@@ -307,21 +314,21 @@
       </li>
           <li><a href="#">DỊCH VỤ KHÁC</a></a>
 	  <ul class="dropDown">
-      <li><a href="/pages/dich-vu-khac/in-name-card.html">in name card</a></li>
-      <li><a href="/pages/dich-vu-khac/may-in-tap-de.html">may in tạp dề</a></li>
-      <li><a href="/pages/dich-vu-khac/in-theu-non.html">in thêu nón</a></li>
-      <li><a href="/pages/dich-vu-khac/in-quang-cao.html">in quảng cáo</a></li>
-      <li><a href="/pages/dich-vu-khac/in-tranh-ghep.html">in tranh ghép</a></li>
-      <li><a href="/pages/dich-vu-khac/in-ly.html">in ly</a></li>
-      <li><a href="/pages/dich-vu-khac/in-lot-chuot.html">in lót chuột</a></li>
+      <li><a href="/pages/dich-vu-khac/in name card.html">in name card</a></li>
+      <li><a href="/pages/dich-vu-khac/may in tạp dề.html">may in tạp dề</a></li>
+      <li><a href="/pages/dich-vu-khac/in thêu nón.html">in thêu nón</a></li>
+      <li><a href="/pages/dich-vu-khac/in quảng cáo.html">in quảng cáo</a></li>
+      <li><a href="/pages/dich-vu-khac/in tranh ghép.html">in tranh ghép</a></li>
+      <li><a href="/pages/dich-vu-khac/in ly.html">in ly</a></li>
+      <li><a href="/pages/dich-vu-khac/in lót chuột.html">in lót chuột</a></li>
       </ul>
 	  </li>
         <li><a href="#">VẬT TƯ NGÀNH IN</a></a>
 	  <ul class="dropDown">
-      <li><a href="/pages/vat-tu-nganh-in/vat-tu-in-lua.html">vật tư in lụa</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/vat-tu-in-nhua.html">vật tư in nhựa</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/vat-tu-in-ky-thuat-so.html">vật tư in kỹ thuật số</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/san-pham-cu-gia-tot.html">sản phẩm cũ giá tố</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in lụa.html">vật tư in lụa</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in nhựa.html">vật tư in nhựa</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in kỹ thuật số.html">vật tư in kỹ thuật số</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/sản phẩm cũ giá tốt.html">sản phẩm cũ giá tố</a></li>
       </ul>
 	  </li>
       <li><a href="#">BLOG</a>
@@ -378,13 +385,7 @@
             <div class="sliderBullet"></div>
         </div>
         <div class="timerBar" id="timerBar"></div>
-    </div>
-    <button onclick="rightSliding()">Next Slide</button>
-    <p id="index"></p>
-    
-    <pre> 
-    test 47
-  </pre>
+    </div>   
     <div class="centeredText" style="font-size:16px;">
         <a href="https://aothunxuxu.com/mau-thiet-ke-dong-phuc/12/mau-thiet-ke-dong-phuc-moi-nhat.html" class="recentDesign">
             Mẫu thiết kế đồng phục mới nhất
@@ -735,11 +736,11 @@
 </body>
 </html>
 
-
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
    .footer {
@@ -764,6 +765,7 @@
  .footer-column {
      flex: 1 1 220px;
      margin: 10px;
+     color:#cacaca;
  }
 
      .footer-column h3 {
@@ -772,6 +774,7 @@
          font-size: 16px;
          text-transform: uppercase;
          border-bottom: 1px solid white;
+         color:#cacaca;
      }
 
      .footer-column ul {
@@ -788,19 +791,26 @@
              margin-bottom: 8px;
          }
 
-             .footer-column ul li a {
+             .footer-column ul li a,
+             .footer-column p a {
                  text-decoration: none;
                  color: #ccc;
                  font-size: 14px;
              }
 
-                 .footer-column ul li a:hover {
+                 .footer-column ul li a:hover,
+                 .footer-column p a:hover {
                      color: orange;
                  }
 
      .footer-column p {
          font-size: 14px;
          margin-bottom: 10px;
+     }
+     .material-icons{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
      }
 
  .social-icons a {
@@ -879,8 +889,6 @@
 
          .facebook p i {
              float: right;
-             vertical-align
-             margin-top:10px;
              color: white;
              font-size: 19px;
          }
@@ -920,27 +928,27 @@
     <div class="footer-column">
       <h3>THÔNG TIN HỖ TRỢ</h3>
       <ul>
-        <li><a href="#">Giới thiệu</a></li>
-        <li><a href="#">Danh sách đại lý</a></li>
-        <li><a href="#">Quy trình đặt áo đồng phục</a></li>
-        <li><a href="#">Bảng giá đồng phục</a></li>
-        <li><a href="#">Bảng màu áo thun trơn</a></li>
-        <li><a href="#">Size áo đồng phục</a></li>
-        <li><a href="#">Một số lưu ý</a></li>
-        <li><a href="#">Hướng dẫn bảo quản</a></li>
-        <li><a href="#">Câu hỏi thường gặp</a></li>
-        <li><a href="#">Slogan Tiếng Anh</a></li>
-        <li><a href="#">Slogan Tiếng Việt</a></li>
+        <li><a clas="info" href="/pages/footer/gioi-thieu.html">Giới thiệu</a></li>
+        <li><a clas="info" href="/pages/footer/danh-sach-dai-ly.html">Danh sách đại lý</a></li>
+        <li><a clas="info" href="/pages/footer/quy-trinh-dat-ao-dong-phuc.html">Quy trình đặt áo đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/bang-gia-dong-phuc.html">Bảng giá đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/bang-mau-ao-thun-tron.html">Bảng màu áo thun trơn</a></li>
+        <li><a clas="info" href="/pages/footer/size-ao-dong-phuc.html">Size áo đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/mot-so-luu-y.html">Một số lưu ý</a></li>
+        <li><a clas="info" href="/pages/footer/huong-dan-bao-quan.html">Hướng dẫn bảo quản</a></li>
+        <li><a clas="info" href="/pages/footer/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a></li>
+        <li><a clas="info" href="/pages/footer/slogan-tieng-anh.html">Slogan Tiếng Anh</a></li>
+        <li><a clas="info" href="/pages/footer/slogan-tieng-viet.html">Slogan Tiếng Việt</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h3>THÔNG TIN LIÊN HỆ</h3>
       <p>Mọi chi tiết xin vui lòng liên hệ theo thông tin sau.</p><br>
-      <p>38/16 (20/9B số cũ) đường Đặng Đức Thuật, KP.6, P. Tam Hiệp, TP. Biên Hòa, Đồng Nai</p>
+      <p><i class="fa fa-map-marker"></i>/16 (20/9B số cũ) đường Đặng Đức Thuật, KP.6, P. Tam Hiệp, TP. Biên Hòa, Đồng Nai</p>
       <p><i class="fa fa-phone"></i> (Zalo) 076 771 0030 (kinh doanh)</p>
       <p><i class="fa fa-phone"></i> (Zalo) 081 771 0030 (kỹ thuật)</p>
-      <p><i class="email"></i> dongphucxuxu@gmail.com</p>
+      <p><i class="material-icons">email</i><a href="mailto:dongphucxuxu@gmail.com"> dongphucxuxu@gmail.com</a></p>
     </div>
 
     <div class="footer-column">
@@ -954,8 +962,8 @@
     <div class="footer-column">
       <h3>MẠNG XÃ HỘI</h3>
       <div class="social-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.facebook.com/AOLOP.AONHOM.XUXU.BIENHOA"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCFr_bSfnoYB1oYqTmfjlLaw"><i class="fa fa-youtube-square"></i></a>
       </div>
     </div>
   </div>
@@ -1047,7 +1055,6 @@ document.getElementById("scrollTopBtn").addEventListener("click", function () {
     scrollToTop(600); // custom duration in ms
 });
 </script>
-  </body>
-
+</body>
 </body>
 </html>

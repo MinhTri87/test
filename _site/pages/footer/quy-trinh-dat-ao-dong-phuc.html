@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    body {
+            font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+        }
+        .topBar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 5px 0px;
+        }
+
+            .topBar img {
+                margin-left: 100px;
+                width: 147px;
+                height: 28px;
+            }
+
+        .infoBar {
+            list-style-type: none;
+            display: flex;
+            padding: 0 100px 0 30px;
+            gap: 30px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        .infoBar *{
+            color: #888888;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .mail {
+            text-decoration: none;
+            color: black;
+        }
+
+            .infoBar a:hover {
+                color: orange;
+            }
+
+        .Header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            background: #f9f9f9;
+            border-top: 0.5px groove #e0e0e0;
+            border-bottom: 0.5px groove #e0e0e0;
+            z-index: 99;
+        }
+
+        .navBar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 100px;
+            display: flex;
+            flex: 1;
+            background: #f9f9f9;
+            flex-wrap: nowrap;
+        }
+
+            .navBar li:first-child a {
+                display: block;
+                color: #666666;
+                text-align: center;
+                padding: 16px 32px 16px 32px;
+                text-decoration: none;
+                border-left: 0.5px groove #e0e0e0;
+                border-right: 0.5px groove #e0e0e0;
+                font-size: 12.5px;
+            }
+
+            .navBar li a {
+                display: block;
+                text-align: center;
+                padding: 16px 32px 16px 32px;
+                text-decoration: none;
+                border-right: 0.5px groove #e0e0e0;
+                font-size: 12.5px;
+                white-space: nowrap;
+                font-weight:bold;
+                color:#666666;
+            }
+
+                .navBar li a:hover {
+                    color: orange;
+                }
+
+        .Facebook {
+            display: flex;
+            align-items: center;
+            padding: 0 100px 0 20px;
+        }
+
+            .Facebook i {
+                display: inline-block;
+                border: 1px solid #e0e0e0;
+                width: 26px;
+                height: 26px;
+                text-align: center;
+                line-height: 26px;
+                border-radius: 50%;
+                font-size: 14px;
+                color: black;
+            }
+
+                .Facebook i:hover {
+                    color: #3b5998;
+                    border: 1px solid #3b5998;
+                }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        li {
+            position: relative;
+        }
+
+        .dropDown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #212529;
+            min-width: 200px;
+            z-index: 99;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+            .dropDown li a {
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: normal;
+                font-family: 'Roboto Condensed', sans-serif;
+                color: white;
+                width: 100%;
+                white-space: nowrap;
+                border: none;
+            }
+
+                .dropDown li a:first-child {
+                    display: block;
+                    border-left: none;
+                    border-bottom: 1px solid #1b1f23;
+                    text-align: left;
+                    color: white;
+                  font-size:14px;
+                }
+
+            .dropDown li a:hover {
+                color:#e67e22;
+            }
+
+        li:hover > .dropDown {
+            display: flex;
+        }
+
+        @media (max-width: 991px) {
+            .infoBar {
+                display: none;
+            }
+
+            .topBar {
+                justify-content: space-between;
+            }
+            .topBar img{
+                padding-left:20px;
+            }
+
+            .Header {
+                position: relative;
+                border: none;
+                height: auto;
+                width: auto;
+                flex-direction: column;
+            }
+
+            .navBar {
+                max-height: 0px;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in;
+                align-items: left;
+                justify-content: left;
+                flex-direction: column;
+                width: 100%;
+                background: #212529;
+                z-index: 10;
+                padding: 0;               
+            }
+
+                .navBar li a {
+                    text-transform:none;
+                    border-bottom: 1px solid #1b1f23;
+                    color: #cacaca;
+                    font-size: 12.5px;
+                    text-align: left;
+                    border-right: none;
+                    margin: 0 0 0 20px;
+                    padding: 12px 0 12px 0;
+                }
+
+                .navBar li a:first-child  {
+                    color: #cacaca;
+                    font-size: 12.5px;
+                    text-align: left;
+                    border-left: none;
+                    border-right: none;
+                    padding: 12px 0 12px 0;
+                }
+
+                .navBar li a:hover {
+                    color: #e67e22;
+                  background:white;
+                }
+
+                .navBar.show {
+                    display: flex;
+                    max-height: 3000px;
+                }
+
+            .menu-toggle {
+                display: block;
+                float: right;
+                position: absolute;
+                right: 60px;
+                top: 12px;
+                background: #e67e22;
+                padding: 8px 13px;
+                font-size: 15px;
+                border:none;
+                color:white;
+                border-radius:3px;
+                box-shadow:inset 0 -3px 0 rgb(0,0,0,0.15);
+            }
+                .menu-toggle:hover {
+                    background: #cd701e;
+                }
+
+            .Facebook {
+                display: none
+            }
+
+            .dropDown {
+                position: relative;
+                display: flex;
+            }
+
+                .dropDown li a {
+                    margin: 0 0 0 35px;
+                    font-size: 12.5px;
+                    color: #cacaca;
+                }
+
+                .dropDown li:first-child a {
+                    margin: 0 0 0 35px;
+                    font-size: 12.5px;
+                    color: #cacaca;
+                }
+          .dropDown li a:hover{
+            background:#212529;
+          }
+          .dropDown li:first-child a:hover{
+            color:#e67e22;
+          }
+        }
+  </style>
+</head>
+<body>
+  <div class="topBar">
+    <a href="/index.html">
+        <img src="https://aothunxuxu.com/style/images/logo-xuxu.png" alt="Logo">
+    </a>
+    <ul class="infoBar">
+      <li><i class="fa fa-phone"></i> 076 771 0030</li>
+      <li><i class="material-icons">email</i><a href="/mailto:dongphucxuxu@gmail.com" class="mail"> dongphucxuxu.com</a></li>
+      <li class="signIn"><i class="fa fa-sign-in"></i><a href="/pages/log-in.html"> CTV đăng nhập</a></li>
+    </ul>
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+  <div class="Header">
+    <ul class="navBar" id="navBar">
+      <li><a href="/index.html">TRANG CHỦ</a></li>
+      <li><a href="/pages/products.html">ÁO TRƠN</a></li>
+      <li><a href="#">HÌNH MẪU IN ÁO</a>
+      <ul class="dropDown">
+        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-lop.html">mẫu in áo lớp</a></li>
+        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-nhom.html">mẫu in áo nhóm</a></li>
+        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-cap.html">mẫu in áo cặp</a></li>
+        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-gia-dinh.html">mẫu in áo gia đình</a></li>
+        <li><a href="/pages/hinh-mau-in-ao/mau-thiet-ke-hoan-thien.html">mẫu thiết kế hoàn thiện</a></li>
+        <li><a href="/pages/hinh-mau-in-ao/file-vector-50k.html">file vector 50k</a></li>
+      </ul>
+      </li>
+          <li><a href="#">DỊCH VỤ KHÁC</a></a>
+	  <ul class="dropDown">
+      <li><a href="/pages/dich-vu-khac/in name card.html">in name card</a></li>
+      <li><a href="/pages/dich-vu-khac/may in tạp dề.html">may in tạp dề</a></li>
+      <li><a href="/pages/dich-vu-khac/in thêu nón.html">in thêu nón</a></li>
+      <li><a href="/pages/dich-vu-khac/in quảng cáo.html">in quảng cáo</a></li>
+      <li><a href="/pages/dich-vu-khac/in tranh ghép.html">in tranh ghép</a></li>
+      <li><a href="/pages/dich-vu-khac/in ly.html">in ly</a></li>
+      <li><a href="/pages/dich-vu-khac/in lót chuột.html">in lót chuột</a></li>
+      </ul>
+	  </li>
+        <li><a href="#">VẬT TƯ NGÀNH IN</a></a>
+	  <ul class="dropDown">
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in lụa.html">vật tư in lụa</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in nhựa.html">vật tư in nhựa</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/vật tư in kỹ thuật số.html">vật tư in kỹ thuật số</a></li>
+      <li><a href="/pages/vat-tu-nganh-in/sản phẩm cũ giá tốt.html">sản phẩm cũ giá tố</a></li>
+      </ul>
+	  </li>
+      <li><a href="#">BLOG</a>
+	  <ul class="dropDown">
+      <li><a href="/blog/ky-thuat-in-lua.html">kỹ thuật in lụa</a></li>
+      <li><a href="/blog/ky-thuat-in-nhiet.html">kỹ thuật in nhiệt</a></li>
+      <li><a href="/blog/decal-ep-nhiệt.html">decal ép nhiệt</a></li>
+      <li><a href="/blog/font-chu-dep-in-ao.html">font chữ đẹp in áo</a></li>
+      <li><a href="/blog/font-tieng-viet-in-ao.html">font tiếng việt in áo</a></li>
+      <li><a href="/blog/cuoc-doi-ngoai-hang.html">cuộc đời ngoại hạng</a></li>
+      </ul>
+	  </li>
+      <li><a href="/pages/contact.html">LIÊN HỆ</a></li>
+    </ul>
+    <span class="Facebook"><i class="fa fa-facebook"></i></span>
+  </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navBar');
+      nav.classList.toggle('show');
+    }
+  </script>
+</body>
+
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link href="/style/social-share-kit-1.0.14/dist/css/social-share-kit.css" rel="stylesheet" type="text/css"/>
+    <!--global styling-->
+    <!--<link rel="stylesheet" href="../style/products-style.css">-->
+    <style>    
+    </style>
+</head>
+<body>
+    <div class="ssk-sticky ssk-left ssk-center ssk-lg">
+        <a href class="ssk ssk-facebook"></a>
+        <a href class="ssk ssk-twitter"></a>
+        <a href class="ssk ssk-google-plus"></a>
+        <a href class="ssk ssk-email"></a>
+    </div>
+    <script>
+        
+    </script>
+</body>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <!--global styling-->
+    <link rel="stylesheet" href="/style/posts.css?v=1751443207">
+    <style>
+        body{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;            
+            margin:0px; 
+            line-height: 25px;                              
+        }
+        .innerInfo{
+            width:770px;
+            margin-inline:auto;
+            padding-bottom: 70px;
+        }
+        .innerInfo h2{
+            font-size: 22px;
+            line-height: 24px;
+            margin-bottom: 15px;
+            color:#616161;
+            font-weight: 700;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        ul{
+            list-style-type: none;
+            padding: 18px;
+            margin-bottom:10px;
+        }
+        .page-title{
+            background-image: url(/style/background/ptbg14.jpg);
+            background-size: cover;
+            background-position-x: right;
+        }
+        .notice{
+            background-color:#dff0d8;
+            border: 1px solid #d6e9c6;
+            padding:15px;
+            border-radius: 4px;
+            color:#468847;
+        }
+        h3,.section-title{
+            color:#e67e22;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        h3{
+            color:#616161;
+            margin-bottom: 10px;
+        }
+        .return{
+            box-sizing: border-box;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            white-space: nowrap;
+            line-height: 1.428571429;
+            color: #fff !important;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            padding: 11px 20px 13px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            text-transform: uppercase;
+            transition: all 200ms ease-in;
+            border-radius: 3px;
+            box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
+            background: #fa6c65;
+        }
+        .return:hover{
+            background:#cd701e;
+        }
+        .row address a{
+            color:#e67e22;
+        }
+        @media(min-width:1200px){
+            .title{
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <div class="page-title"></div>
+        <h1>Quy trình đặt áo đồng phục</h1>
+    </div> 
+    <div class="pageContainer">
+        <div class="row">
+            <div class="col">
+                <h3 class="section-title">QUY TRÌNH ĐẶT ÁO ĐỒNG PHỤC</h3>
+                <h2>Bạn đang có nhu cầu đặt áo đồng phục?</h2>
+                <p>Sau đây chúng tôi sẽ trình bày các bước theo trình tự của quy trình đặt áo đồng phục để các bạn có thể chuẩn bị những gì cần thiết nhằm chủ động về việc lập kế hoạch và đảm bảo đúng tiến độ mong muốn.Tránh trường hợp để quá cận ngày rồi mới đi liên hệ đặt áo thì vừa cập rập vừa không đủ thời gian cho nhà cung cấp sản xuất một cách cẩn thận.</p>
+                <p class="section-title">🙂 Bước 1: Gửi nội dung và yêu cầu thiết kế mẫu</p>
+                <p>Trước tiên bạn cần xác định một vài nội dung cơ bản về chiếc áo đồng phục mà mình dự kiến muốn đặt như sau:</p>
+                <ul>
+                    <li><i class="fa fa-arrow-circle-right"></i> Kiểu dáng: Là áo thun có cổ hay không cổ, là áo thun cổ tròn hay cổ tim, là áo thun tay thường hay tay raglan phối…</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Màu sắc: Là muốn làm áo màu gì? Muốn làm áo 1 màu hay phối màu?</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Nội dung thể hiện: Là muốn in hay thêu logo? Muốn thể hiện những nội dung gì trên áo?</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Số lượng dự kiến: Dự tính làm bao nhiêu áo?</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Từ những thông tin trên chúng tôi sẽ tính được giá thành và báo giá cụ thể cho bạn để bạn dự trù kinh phí.</li>
+                </ul>
+                <p>Theo kinh nghiệm của chúng tôi thì bước đầu tiên này chính là khâu quan trọng nhất, mất thời gian nhiều nhất và ảnh hưởng nhất đến quyết định là có đặt áo nữa hay không!</p>
+                <p class="section-title">😉 Bước 2: bạn tiến hành đặt cọc lên đơn hàng: 500.000 vnđ</p>
+                <p class="section-title">😀 Bước 3: Thiết kế mẫu</p>
+                <ul>
+                    <li><i class="fa fa-arrow-circle-right"></i> Sau khi đã xác định và thống nhất được những nội dung của Bước 1 ở trên, và đặt cọc ở Bước 2, nghĩa là đã quyết định đặt áo thì bước tiếp theo chúng tôi sẽ thiết kế mẫu (bằng hình ảnh) theo yêu cầu của bạn. Thời gian thiết kế mẫu thường mất từ 1 – 3 ngày, tùy theo mẫu đơn giản hay phức tạp.</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Sau khi thiết kế mẫu xong chúng tôi sẽ gửi mẫu (bằng hình ảnh) cho các bạn xem để các bạn đưa ra những điều chỉnh (nếu có) cho vừa ý.</li>
+                </ul>
+                <p class="section-title">😄 Bước 4: bạn đặt cọc 50% đơn hàng</p>
+                <p class="section-title">😍 Bước 5: Hoàn tất đơn hàng</p>
+                <ul>
+                    <li><i class="fa fa-arrow-circle-right"></i> Sau khi ký hợp đồng chúng tôi sẽ tiến hành sản xuất hàng loạt. Thông thường, thời gian sản xuất từ 10 – 15 ngày.</li>
+                    <li><i class="fa fa-arrow-circle-right"></i> Khi sản xuất xong chúng tôi sẽ thông báo cho các bạn để chuẩn bị nhận hàng và hoàn tất đơn hàng. Nếu các bạn ở tỉnh xa thì vui lòng thanh toán nốt số tiền còn lại để chúng tôi gửi hàng về cho các bạn qua bưu điện hoặc nhà xe mà các bạn yêu cầu.</li>
+                </ul>
+                <a href="#top" class="return">MẪU CẦN GẤP VUI LÒNG LIÊN HỆ HOTLINE: 076.771.0030</a>
+                <div class="notice">
+                    <p>Trên đây là trình tự các bước của quy trình đặt áo đồng phục. Nếu còn thắc mắc hoặc cần tư vấn gì thêm các bạn vui lòng liên hệ với chúng tôi để được phục vụ ngay nhé.</p>
+                    <p>Cảm ơn các bạn đã quan tâm. Đồng Phục AOTHUNXUXU rất hân hạnh được phục vụ các bạn.</p> 
+                    <p>Đồng Phục #AOTHUNXUXU – Đơn vị cung cấp đồng phục chuyên nghiệp</p>                                    
+                    <p>Đồng hành cùng rất nhiều khách hàng trong việc xây dựng và khẳng định tính chuyên nghiệp thương hiệu, AOTHUNXUXU mang đến rất nhiều mẫu đồng phục đẹp mắt, thu hút với giá thành hợp lý, cam kết về chất lượng.</p>
+                </div>
+                <h3>THÔNG TIN LIÊN HỆ</h3>
+                <address>
+                    <strong>ÁO THUN XUXU</strong><br>
+                    <strong>CÔNG TY TNHH MTV TRƯƠNG BẢO PHÁT</strong><br>
+                    <strong>MÃ SỐ THUẾ:</strong> 3603216861 <br>
+                    20/9B, khu phố 6, phường Tam Hiệp, thành phố Biên Hòa, tỉnh Đồng Nai<br>
+                    <abbr>Điện thoại:</abbr> 076 771 0030 <br>
+                    <abbr>Email:</abbr> <a href="mailto:dongphucxuxu@gmail.com">dongphucxuxu@gmail.com</a><br>
+                </address>
+            </div>
+            <div class="sideWidget">
+                <div class="posts">HỖ TRỢ</div>
+                <ul class="postCategory">
+                    <li class="postCategories"><a href="/pages/thiet-ke-san-pham.html">Thiết kế áo thun</a></li>
+                    <li class="postCategories"><a href="/pages/footer/quy-trinh-dat-ao-dong-phuc.html">Quy trình đặt áo đồng phục</a></li>
+                    <li class="postCategories"><a href="/pages/footer/bang-gia-dong-phuc.html">Bảng giá</a></li>
+                    <li class="postCategories"><a href="/pages/footer/bang-mau-ao-thun-tron.html">Bảng màu</a></li>
+                    <li class="postCategories"><a href="/pages/footer/size-ao-dong-phuc.html">Size áo</a></li>
+                    <li class="postCategories"><a href="/pages/footer/mot-so-luu-y.html">Một số lưu ý</a></li>
+                    <li class="postCategories"><a href="/pages/footer/huong-dan-bao-quan.html">Hướng dẫn bảo quản</a></li>
+                    <li class="postCategories"><a href="/pages/footer/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a></li>
+                    <li class="postCategories"><a href="/pages/footer/slogan-tieng-viet.html">Slogan tiếng Việt</a></li>
+                    <li class="postCategories"><a href="/pages/footer/slogan-tieng-anh.html">Slogan tiếng Anh</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+   .footer {
+     position: relative;
+     bottom: 0;
+     width: 100%;
+     background-color: #2f2f2f;
+     color: white;
+     font-family: Arial, sans-serif;
+     padding: 0 100px 0 100px;
+     box-sizing: border-box;
+ }
+
+ .footer-content {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding-bottom: 20px;
+ }
+
+ .footer-column {
+     flex: 1 1 220px;
+     margin: 10px;
+     color:#cacaca;
+ }
+
+     .footer-column h3 {
+         padding-bottom: 10px;
+         margin-bottom: 15px;
+         font-size: 16px;
+         text-transform: uppercase;
+         border-bottom: 1px solid white;
+         color:#cacaca;
+     }
+
+     .footer-column ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+     }
+
+         .footer-column ul li:before {
+             content: "\25b8";
+         }
+
+         .footer-column ul li {
+             margin-bottom: 8px;
+         }
+
+             .footer-column ul li a,
+             .footer-column p a {
+                 text-decoration: none;
+                 color: #ccc;
+                 font-size: 14px;
+             }
+
+                 .footer-column ul li a:hover,
+                 .footer-column p a:hover {
+                     color: orange;
+                 }
+
+     .footer-column p {
+         font-size: 14px;
+         margin-bottom: 10px;
+     }
+     .material-icons{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+     }
+
+ .social-icons a {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 32px;
+     height: 32px;
+     margin-right: 10px;
+     border: 1px solid #ccc;
+     border-radius: 50%;
+     color: white;
+     text-decoration: none;
+     transition: all 0.3s ease;
+ }
+
+     .social-icons a:hover {
+         border-color: #3b5998;
+         color: #3b5998;
+     }
+
+ .footer-bottom {
+     text-align: center;
+     font-size: 13px;
+     color: #bbb;
+     padding: 20px 10px;
+     background-color: black;
+ }
+
+ .toTop {
+     position: fixed;
+     bottom: 50px;
+     margin-bottom: 5px;
+     right: 20px;
+     background: rgba(255,140,0,0.5);
+     border: none;
+     border-radius: 3px;
+     cursor: pointer;
+     padding: 9px 10px 10px 10px;
+     transition: background 0.2s linear;
+     display:none;
+ }
+
+     .toTop:hover {
+         background: rgb(0,0,0,0.5);
+     }
+
+     .toTop i {
+         font-size: 20px;
+     }
+
+ .facebook {
+     position: fixed;
+     right: 20px;
+     bottom: 0px;
+     width: 288px;
+     background: #e67e22;
+     border: 1px solid orangered;
+     padding: 0px 13px;
+     overflow: hidden;
+     transition: all 0.5s linear;
+   z-index:26
+ }
+
+     .facebook p {
+         height: 20px;
+         position: relative;
+         font-size: 15px;
+         color: white;
+         z-index:26;
+     }
+
+         .facebook p a:hover {
+             text-decoration: underline;
+         }
+
+         .facebook p i {
+             float: right;
+             color: white;
+             font-size: 19px;
+         }
+ #widget {
+     position: fixed;
+     right: 20px;
+     bottom: 0px;
+     transform:translateY(100%);
+     width:288px;
+     z-index:100;
+     transition: all 0.5s linear;
+ }
+         #widget div div{
+             background:#e67e22;
+             width:288px;
+             height:20px;
+         }
+ .closeButton {
+     background: #4e5665cc;
+     font-size:14px;
+     width:25px;
+     height:25px;
+     color:white;
+     position:absolute;
+     right:0px;
+     top:1px;
+     z-index:200;
+     text-align:center;
+     padding-top:5.5px;
+     cursor:pointer;
+ }
+  </style>
+</head>
+  <body>
+    <footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>THÔNG TIN HỖ TRỢ</h3>
+      <ul>
+        <li><a clas="info" href="/pages/footer/gioi-thieu.html">Giới thiệu</a></li>
+        <li><a clas="info" href="/pages/footer/danh-sach-dai-ly.html">Danh sách đại lý</a></li>
+        <li><a clas="info" href="/pages/footer/quy-trinh-dat-ao-dong-phuc.html">Quy trình đặt áo đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/bang-gia-dong-phuc.html">Bảng giá đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/bang-mau-ao-thun-tron.html">Bảng màu áo thun trơn</a></li>
+        <li><a clas="info" href="/pages/footer/size-ao-dong-phuc.html">Size áo đồng phục</a></li>
+        <li><a clas="info" href="/pages/footer/mot-so-luu-y.html">Một số lưu ý</a></li>
+        <li><a clas="info" href="/pages/footer/huong-dan-bao-quan.html">Hướng dẫn bảo quản</a></li>
+        <li><a clas="info" href="/pages/footer/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a></li>
+        <li><a clas="info" href="/pages/footer/slogan-tieng-anh.html">Slogan Tiếng Anh</a></li>
+        <li><a clas="info" href="/pages/footer/slogan-tieng-viet.html">Slogan Tiếng Việt</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>THÔNG TIN LIÊN HỆ</h3>
+      <p>Mọi chi tiết xin vui lòng liên hệ theo thông tin sau.</p><br>
+      <p><i class="fa fa-map-marker"></i>/16 (20/9B số cũ) đường Đặng Đức Thuật, KP.6, P. Tam Hiệp, TP. Biên Hòa, Đồng Nai</p>
+      <p><i class="fa fa-phone"></i> (Zalo) 076 771 0030 (kinh doanh)</p>
+      <p><i class="fa fa-phone"></i> (Zalo) 081 771 0030 (kỹ thuật)</p>
+      <p><i class="material-icons">email</i><a href="mailto:dongphucxuxu@gmail.com"> dongphucxuxu@gmail.com</a></p>
+    </div>
+
+    <div class="footer-column">
+      <h3>GIỚI THIỆU</h3>
+      <p>
+        Công ty TNHH MTV Trương Bảo Phát được thành lập 15/10/2014, với thương hiệu áo thun xuxu (khởi đầu từ năm 2010).
+        Chúng tôi mong muốn cung cấp các sản phẩm về áo thun, may, thêu và in đồng phục chất lượng cao đến người tiêu dùng.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>MẠNG XÃ HỘI</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/AOLOP.AONHOM.XUXU.BIENHOA"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCFr_bSfnoYB1oYqTmfjlLaw"><i class="fa fa-youtube-square"></i></a>
+      </div>
+    </div>
+  </div>
+          <div class="facebook" id="facebookArea">
+        <p id="facebook">
+            <a>Để tin nhắn của bạn trên FB?</a>
+            <i class="fa fa-chevron-up"></i>
+        </p>        
+    </div>
+    <div id="widget">
+    <div class="fb-page fb_iframe_widget"
+     data-adapt-container-width="true" data-height="320"
+     data-hide-cover="false" data-href="https://www.facebook.com/AOLOP.AONHOM.XUXU.BIENHOA/"
+     data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages"
+     data-width="315" style=" z-index:9999999; right:0px; bottom:21px;
+border-left: 1px solid #fff;border-top: 1px solid #fff;" fb-xfbml-state="rendered"
+     fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=1231560183540255&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FAOLOP.AONHOM.XUXU.BIENHOA%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=315">
+    <span style="vertical-align: bottom; width: 288px; height: 320px;">
+        <iframe name="f45f7d87872c823e7" width="288px" height="320px"
+                data-testid="fb:page Facebook Social Plugin"
+                title="fb:page Facebook Social Plugin" frameborder="0"
+                allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media"
+                src="https://web.facebook.com/v2.5/plugins/page.php?adapt_container_width=true&amp;
+                    app_id=1231560183540255&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Dfa5774308ab03604b%26domain%3Daothunxuxu.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Faothunxuxu.com%252Ff32695a8445cc4dcc%26relation%3Dparent.parent&amp;container_width=0&amp;height=320&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FAOLOP.AONHOM.XUXU.BIENHOA%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;small_header=false&amp;tabs=messages&amp;width=288"
+                style="border: none; visibility: visible; width: 288px; height: 320px;" class="">
+        </iframe>
+    </span>
+        <span class="closeButton" id="closeButton">X</span>
+        <div></div>
+    </div>
+        </div>
+<span class="toTop" id="scrollTopBtn"><i class="fas fa-chevron-up" style="color:white;"></i></span>
+</footer>
+<div class="footer-bottom">
+    <p>Copyright © 2012-2025 by aothunxuxu.com. All rights reserved.</p>
+    <p>Yu-Gi-Oh! Power of Chaos YUGI THE DESTINY<br>
+       Yu-Gi-Oh! Power of Chaos KAIBA THE REVENGE<br>
+       Yu-Gi-Oh! Power of Chaos JOEY THE PASSION</p>
+  </div>
+    <script>
+    const widgetArea = document.getElementById("facebookArea");
+    const facebook = document.getElementById("facebook");
+    const facebookWidget = document.getElementById("widget");
+    const closing = document.getElementById("closeButton");
+    //move "Để tin nhắn của bạn trên FB" down to hide it
+    widgetArea.addEventListener("click", () => {
+        widgetArea.style.transform = 'translateY(100px)';
+        setInterval(facebookWidget.style.transform = 'translateY(0)',500);
+        //show the facebook widget
+    });
+    closing.addEventListener("click", () => {
+        facebookWidget.style.transform = 'translateY(100%)';      
+        setInterval(widgetArea.style.transform = 'translateY(0)',500);
+        //show the facebook widget
+    });
+</script>
+    <script>
+    // Show/hide button based on scroll position
+    window.onscroll = function () {
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+
+    // Scroll to top when button is clicked
+    function scrollToTop(duration = 600) {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // ease-out
+
+        window.scrollTo(0, start * (1 - ease));
+
+        if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
+}
+
+document.getElementById("scrollTopBtn").addEventListener("click", function () {
+    scrollToTop(600); // custom duration in ms
+});
+</script>
+</body>
+</body>
+</html>
