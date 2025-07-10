@@ -274,7 +274,7 @@ body{
             text-align: center;
         }        
         .section{
-            background-image: url("{{site.baseurl}}/style/background/parallax1.jpg");
+            background-image: url(../style/background/parallax1.jpg);
             padding:70px 20px;
             background-size: cover;
             display: flex;
