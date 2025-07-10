@@ -4,7 +4,7 @@ body{
     }
     .page-title {
       height: 120px;
-      background-image: url(/style/background/ptbg14.jpg);
+      background-image: url({{site.baseurl}}/style/background/ptbg14.jpg);
         background-size: 150%;
         background-position-x: right;
         vertical-align: middle;
@@ -274,7 +274,7 @@ body{
             text-align: center;
         }        
         .section{
-            background-image: url(/style/background/parallax1.jpg);
+            background-image: url({{site.baseurl}}/style/background/parallax1.jpg);
             padding:70px 20px;
             background-size: cover;
             display: flex;
