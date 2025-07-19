@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log in</title>
+  <title>Supabase Website</title>
   <link rel="stylesheet" href="../style/style.css">
   <style>
     body {
@@ -48,7 +48,7 @@
     
 const supabaseUrl = 'https://curtpsmoagjqlgtxqmry.supabase.co';
     
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMTk5NDIsImV4cCI6MjA1OTU5NTk0Mn0.vP9Szxmoic63Z7XYNmqxfq1jrVnKTO1UkRFDrXH8YbA';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDAxOTk0MiwiZXhwIjoyMDU5NTk1OTQyfQ.rYC-dXYYv_jwHavwuYWJk3rKaq75rw3gvh51BeyHLVU';
     
 // Wrap Supabase initialization in a DOMContentLoaded event
     
@@ -88,12 +88,25 @@ async function login() {
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password
-        });          
+        });        
+        
+        if (error) throw error;
+        
+        // After successful login, you can fetch additional user profile
+        const { data: profileData, error: profileError } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('email', email)
+            .eq('password',password)
+            .single();
+        
+        if (profileError) console.error('Profile fetch error:', profileError);
+        
         alert("✅ Đăng nhập thành công");
         // Redirect or further processing
     } catch (error) {
         console.error('Login error:', error);
-        alert(`❌ Đăng nhập thất bại`);
+        alert(`❌ Đăng nhập thất bại: ${error.message}`);
     }
 }
 
@@ -105,11 +118,24 @@ async function signUp() {
         const { data, error } = await supabase.auth.signUp({
             email,
             password
-        });                     
+        });        
+        
+        if (error) throw error;
+        
+        // Insert profile after successful signup
+        const { error: profileError } = await supabase
+            .from('profiles')
+            .insert({
+                password: password,
+                name: email,
+            });
+        
+        if (profileError) throw profileError;
+        
         alert('✅ Đăng ký thành công. Vui lòng kiểm tra email.');
     } catch (error) {
         console.error('Signup error:', error);
-        alert(`❌ Đăng ký thất bại`);
+        alert(`❌ Đăng ký thất bại: ${error.message}`);
     }
 }
   </script>

@@ -7,7 +7,192 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body>  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Website</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <style>
+    .popup-wrapper{
+        position: fixed;
+        background-color: rgba(255,255,255,0.3);
+        z-index: 255;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    .survey-popup {
+        position: relative;
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 20px;
+        background: #f7f7f7;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        transform: translateY(5%);
+    }
+
+    .popup-close{
+        position: absolute;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #1a1c1e;
+        color: white;
+        line-height: 8px;
+        right: 10px;
+        top: 0px;
+    }
+.popup-title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.submit-button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  height: auto;
+}
+
+.submit-button:hover {
+  background: #218838;
+}
+
+  </style>
+</head>
 <body>
+    <div class="popup-wrapper">
+   <div class="survey-popup">
+        <p class="popup-close">x</p>
+      <h2 class="popup-title">Vui lòng cho chúng tôi biết nhu cầu của bạn</h2>
+
+      <form id="survey-form" onsubmit="popupSubmission(); return false;">
+        <div class="form-group">
+          <label for="name">Họ tên</label>
+          <input type="text" id="name" placeholder="Nhập họ tên đầy đủ" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Số điện thoại</label>
+          <input type="tel" id="phone" placeholder="Nhập số điện thoại">
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Giới tính</label>
+          <select id="gender" required>
+            <option value="">-- Chọn giới tính --</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comments">Nhu cầu của bạn</label>
+          <textarea id="comments" placeholder="Nhập nhu cầu hoặc mô tả chi tiết..." rows="3"></textarea>
+        </div>
+
+        <button type="submit" id="submit-button" class="submit-button">Gửi thông tin</button>
+      </form>
+    </div>
+    </div>
+
+<!-- Load Supabase script BEFORE your custom scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+// Initialize Supabase BEFORE defining any functions    
+const supabaseUrl = 'https://curtpsmoagjqlgtxqmry.supabase.co';    
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDAxOTk0MiwiZXhwIjoyMDU5NTk1OTQyfQ.rYC-dXYYv_jwHavwuYWJk3rKaq75rw3gvh51BeyHLVU';
+// Wrap Supabase initialization in a DOMContentLoaded event    
+document.addEventListener('DOMContentLoaded', () => {      
+// Initialize Supabase client      
+window.supabase = supabase.createClient(supabaseUrl, supabaseKey);      
+// Setup event listeners after Supabase is initialized      
+const submitButton = document.getElementById("submit-button");
+});
+const survey=document.querySelector(".survey-popup");
+const closeButton=document.querySelector(".popup-close");
+const popupWrapper=document.querySelector(".popup-wrapper");
+closeButton.addEventListener('click', (e) => popupWrapper.style.display='none');
+setTimeout(()=>{
+    popupWrapper.style.display='block'}
+    ,5000);
+
+async function popupSubmission() {      
+    const email = document.getElementById('email').value;
+    const comments=document.getElementById('comments').value;
+    const name=document.getElementById('name').value;
+    const gender=document.getElementById('gender').value;
+    const phone=document.getElementById('phone').value;
+    
+    try {        
+        const { data, error } = await supabase.auth.signUp({
+            email:"admin1@gmail.com",
+            password:"StrongPass123!"
+        });        
+        
+        if (error) throw error;
+        
+        // Insert profile after successful signup
+        const { error: profileError } = await supabase
+            .from('survey_information')
+            .insert({
+                comments: comments,
+                email: email,
+                name:name,
+                phone:phone,
+                gender:gender
+            });
+        
+        if (profileError) throw profileError;
+        
+        alert('✅ Thông tin của bạn đã được ghi lại.');
+        popupWrapper.style.display='none';
+    } catch (error) {
+        console.error('Signup error:', error);
+        alert(`❌ Đăng ký thất bại`);
+    }
+}
+  </script>
+</body>
+</html>
+
+
   
 <!DOCTYPE html>
 <head>
@@ -175,7 +360,40 @@
         li:hover > .dropDown {
             display: flex;
         }
-
+.selected-page.selected{
+   background-color: #CA4246;
+   background-image: linear-gradient(45deg,#CA4246 16.666%,#E16541 16.666%,#E16541 33.333%,#F18F43 33.333%, #F18F43 50%, #8B9862 50%, #8B9862 66.666%, #476098 66.666%, #476098 83.333%, #A7489B 83.333%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+.selected-page.selected:hover{
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+@keyframes rainbow-text-simple-animation-rev {
+    0% {
+        background-size: 650%;
+    }
+    40% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+@keyframes rainbow-text-simple-animation {
+    0% {
+        background-size: 100%;
+    }
+    80% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
         @media (max-width: 991px) {
             .infoBar {
                 display: none;
@@ -300,50 +518,35 @@
   <button class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
   <div class="Header">
     <ul class="navBar" id="navBar">
-      <li><a href="/index.html">TRANG CHỦ</a></li>
-      <li><a href="/pages/products.html">ÁO TRƠN</a></li>
-      <li><a href="#">HÌNH MẪU IN ÁO</a>
+      <li><a class="selected-page selected" data-pages="trang-chu" id="trang-chu" href="/index.html">TRANG CHỦ</a></li>
+      <li><a class="selected-page" data-pages="ao-tron" id="ao-tron" href="/pages/products.html">ÁO TRƠN</a></li>
+      <li><a class="selected-page" data-pages="products" id="products" >HÌNH MẪU IN ÁO</a>
       <ul class="dropDown">
-        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-lop.html">mẫu in áo lớp</a></li>
-        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-nhom.html">mẫu in áo nhóm</a></li>
-        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-cap.html">mẫu in áo cặp</a></li>
-        <li><a href="/pages/hinh-mau-in-ao/mau-in-ao-gia-dinh.html">mẫu in áo gia đình</a></li>
-        <li><a href="/pages/hinh-mau-in-ao/mau-thiet-ke-hoan-thien.html">mẫu thiết kế hoàn thiện</a></li>
-        <li><a href="/pages/hinh-mau-in-ao/file-vector-50k.html">file vector 50k</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/mau-in-ao-lop.html">mẫu in áo lớp</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/mau-in-ao-nhom.html">mẫu in áo nhóm</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/mau-in-ao-cap.html">mẫu in áo cặp</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/mau-in-ao-gia-dinh.html">mẫu in áo gia đình</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/mau-thiet-ke-hoan-thien.html">mẫu thiết kế hoàn thiện</a></li>
+        <li><a class="selected-page" data-pages="products" class="products" href="/pages/hinh-mau-in-ao/file-vector-50k.html">file vector 50k</a></li>
       </ul>
       </li>
-          <li><a href="#">DỊCH VỤ KHÁC</a></a>
+          <li><a class="selected-page" data-pages="other-services" id="other-services" >DỊCH VỤ KHÁC</a></a>
 	  <ul class="dropDown">
-      <li><a href="/pages/dich-vu-khac/in name card.html">in name card</a></li>
-      <li><a href="/pages/dich-vu-khac/may in tạp dề.html">may in tạp dề</a></li>
-      <li><a href="/pages/dich-vu-khac/in thêu nón.html">in thêu nón</a></li>
-      <li><a href="/pages/dich-vu-khac/in quảng cáo.html">in quảng cáo</a></li>
-      <li><a href="/pages/dich-vu-khac/in tranh ghép.html">in tranh ghép</a></li>
-      <li><a href="/pages/dich-vu-khac/in ly.html">in ly</a></li>
-      <li><a href="/pages/dich-vu-khac/in lót chuột.html">in lót chuột</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in name card.html">in name card</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/may in tạp dề.html">may in tạp dề</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in thêu nón.html">in thêu nón</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in quảng cáo.html">in quảng cáo</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in tranh ghép.html">in tranh ghép</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in ly.html">in ly</a></li>
+      <li><a class="selected-page" data-pages="other-services" class="other-services" href="/pages/dich-vu-khac/in lót chuột.html">in lót chuột</a></li>
       </ul>
 	  </li>
-        <li><a href="#">VẬT TƯ NGÀNH IN</a></a>
-	  <ul class="dropDown">
-      <li><a href="/pages/vat-tu-nganh-in/vật tư in lụa.html">vật tư in lụa</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/vật tư in nhựa.html">vật tư in nhựa</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/vật tư in kỹ thuật số.html">vật tư in kỹ thuật số</a></li>
-      <li><a href="/pages/vat-tu-nganh-in/sản phẩm cũ giá tốt.html">sản phẩm cũ giá tố</a></li>
-      </ul>
-	  </li>
-      <li><a href="#">BLOG</a>
-	  <ul class="dropDown">
-      <li><a href="/blog/ky-thuat-in-lua.html">kỹ thuật in lụa</a></li>
-      <li><a href="/blog/ky-thuat-in-nhiet.html">kỹ thuật in nhiệt</a></li>
-      <li><a href="/blog/decal-ep-nhiệt.html">decal ép nhiệt</a></li>
-      <li><a href="/blog/font-chu-dep-in-ao.html">font chữ đẹp in áo</a></li>
-      <li><a href="/blog/font-tieng-viet-in-ao.html">font tiếng việt in áo</a></li>
-      <li><a href="/blog/cuoc-doi-ngoai-hang.html">cuộc đời ngoại hạng</a></li>
-      </ul>
-	  </li>
-      <li><a href="/pages/contact.html">LIÊN HỆ</a></li>
+      <li><a class="selected-page" >VẬT TƯ NGÀNH IN</a></li>
+      <li><a class="selected-page" >BLOG</a></li>
+      <li><a class="selected-page" data-pages="contact" id="contact" href="/pages/contact.html">LIÊN HỆ</a></li>
     </ul>
     <span class="Facebook"><i class="fa fa-facebook"></i></span>
+  </div>
   </div>
   <script>
     function toggleMenu() {
@@ -351,6 +554,37 @@
       nav.classList.toggle('show');
     }
   </script>
+  <script>
+  const navLinks = document.querySelectorAll(".selected-page");
+
+  // Highlight logic
+  function highlightNavById(id) {
+    navLinks.forEach(l => l.classList.remove("selected"));
+    const parent = document.getElementById(id);
+    if (parent) parent.classList.add("selected");
+  }
+
+  // Handle clicks on all links (including dropdowns)
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      const parentId = link.getAttribute("data-pages"); // all submenu items use this
+      if (parentId) {
+        localStorage.setItem("selectedPageId", parentId);
+        highlightNavById(parentId);
+      }
+    });
+  });
+
+  // On page load, restore selected tab
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedId = localStorage.getItem("selectedPageId");
+    if (savedId) {
+      highlightNavById(savedId);
+    }
+  });
+</script>
+
+
 </body>
 
 

@@ -3,45 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supabase Website</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.min.js"></script>
+  <title>Log in</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <style>
+    body {
+      background: #d3d3d3;
+    }
+    .selected {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to my Supabase App</h1>
-
-  <!-- Form for user authentication -->
-  <div id="login-form">
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="login()">Login</button>
+  <div class="login-signup-form" id="login-signup-form">
+    <div class="logup-tabs">
+      <div id="login-tab" class="selected">Đăng nhập</div>
+      <div id="signUp-tab">Đăng ký</div>
+    </div>
+    <div class="log-in-form">
+      <h2 class="log-in-form-title">Vui lòng <span id="tab-switch-title">đăng nhập</span></h2>
+      <div id="login-form">
+        <div class="text-field">
+          <p>Email</p>
+          <input type="text" id="email" placeholder="Email">
+        </div>
+        <div class="text-field">
+          <p>Password</p>
+          <input type="password" id="password" placeholder="Password">
+        </div>
+      </div>
+      <div>
+        <button id="submit-button" class="submit-button" onclick="login()">Đăng nhập</button>
+      </div>
+    </div>
   </div>
 
+    <!-- Load Supabase script BEFORE your custom scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
-    // Supabase client setup
-    import { createClient } from '@supabase/supabase-js'
-    const supabaseUrl = 'https://curtpsmoagjqlgtxqmry.supabase.co'; // Your Supabase URL
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDAxOTk0MiwiZXhwIjoyMDU5NTk1OTQyfQ.rYC-dXYYv_jwHavwuYWJk3rKaq75rw3gvh51BeyHLVU'; // Your Supabase Anon key
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    
+    let isLogin = true; // flag to switch mode
 
-    async function login() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+// Initialize Supabase BEFORE defining any functions
+    
+const supabaseUrl = 'https://curtpsmoagjqlgtxqmry.supabase.co';
+    
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cnRwc21vYWdqcWxndHhxbXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMTk5NDIsImV4cCI6MjA1OTU5NTk0Mn0.vP9Szxmoic63Z7XYNmqxfq1jrVnKTO1UkRFDrXH8YbA';
+    
+// Wrap Supabase initialization in a DOMContentLoaded event
+    
+document.addEventListener('DOMContentLoaded', () => {
+      
+// Initialize Supabase client
+      
+window.supabase = supabase.createClient(supabaseUrl, supabaseKey);
+      
+// Setup event listeners after Supabase is initialized
+      
+const submitButton = document.getElementById("submit-button");
+    const formTitle = document.getElementById("tab-switch-title");
+    const tabs = document.querySelectorAll(".logup-tabs div");
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+    tabs.forEach(tab => {
+      tab.addEventListener("click", e => {
+        e.preventDefault();
+        tabs.forEach(t => t.classList.remove("selected"));
+        tab.classList.add("selected");
+        formTitle.textContent = tab.textContent;
+        submitButton.textContent = tab.textContent;
 
-  if (error) {
-    alert('❌ Login failed: ' + error.message);
-  } else {
-    alert('✅ Welcome ' + data.user.email);
-    // Redirect or show dashboard here
-  }
+        if (tab.id === "signUp-tab") {
+          isLogin = false;
+          submitButton.onclick = signUp;
+        } else {
+          isLogin = true;
+          submitButton.onclick = login;
+        }
+      });
+    })});
+async function login() {      
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;      
+    try {      
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email,
+            password
+        });          
+        alert("✅ Đăng nhập thành công");
+        // Redirect or further processing
+    } catch (error) {
+        console.error('Login error:', error);
+        alert(`❌ Đăng nhập thất bại`);
+    }
 }
-.catch(err => console.error("❌ Failed to load gallery JSON:", err));
 
+async function signUp() {      
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    try {        
+        const { data, error } = await supabase.auth.signUp({
+            email,
+            password
+        });                     
+        alert('✅ Đăng ký thành công. Vui lòng kiểm tra email.');
+    } catch (error) {
+        console.error('Signup error:', error);
+        alert(`❌ Đăng ký thất bại`);
+    }
+}
   </script>
 </body>
 </html>
