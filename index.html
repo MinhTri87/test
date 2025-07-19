@@ -287,7 +287,7 @@ layout: index
             sliderList.innerHTML = currentList
                 .map((item, i) => {
                     if (item.toUpperCase() === "LIÊN HỆ") {
-                        return `<a href="https://aothunxuxu.com/">LIÊN HỆ</a>`;
+                        return `<a href="{{site.baseurl}}/pages/contact.html">LIÊN HỆ</a>`;
                     }
                     const size = i === 0 ? "2vw" : "1.5vw";
                     return `<div style="font-size:${size}">${item}</div>`;
